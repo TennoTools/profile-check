@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { InitGate } from './components/InitGate';
 import { Layout } from './components/Layout';
+import { SetupGate } from './components/SetupGate';
+import { CheckPage } from './pages/CheckPage';
 import { HistoryPage } from './pages/HistoryPage';
 import { InitPage } from './pages/InitPage';
 import { RunDetailPage } from './pages/RunDetailPage';
@@ -23,12 +24,15 @@ export function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route element={<Layout />}>
-            <Route index element={<InitGate />} />
-            <Route path="init" element={<InitPage />} />
-            <Route path="runs" element={<HistoryPage />} />
-            <Route path="runs/:id" element={<RunDetailPage />} />
-            <Route path="settings" element={<SettingsPage />} />
+          {/* The wizard lives outside the Layout: no nav while the app is unconfigured. */}
+          <Route path="init" element={<InitPage />} />
+          <Route element={<SetupGate />}>
+            <Route element={<Layout />}>
+              <Route index element={<CheckPage />} />
+              <Route path="runs" element={<HistoryPage />} />
+              <Route path="runs/:id" element={<RunDetailPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -89,11 +89,11 @@ npm start         # API + GUI on http://127.0.0.1:8787
 
 ## First run
 
-1. **`/init` wizard** — with nothing configured yet, opening the app lands on a first-run page: paste
-   your ScraperAPI key (optional), find your AccountId with **Find my Account ID** (temporary
-   Chromium, manual login, nothing stored) — or press **Try with the sample account** to test the
-   pipeline on [DE]Rebecca's public profile. Saving a key or an id leaves the wizard for good
-   (skipping re-proposes it on the next session).
+1. **`/init` wizard** — with nothing configured yet, every app page redirects to a standalone first-run
+   screen (no nav): paste your ScraperAPI key (optional), find your AccountId with **Find my
+   Account ID** (temporary Chromium, manual login, nothing stored) — or press **Try with the sample
+   account** to test the pipeline on [DE]Rebecca's public profile. Saving a key or an id leaves the
+   wizard for good (skipping unlocks the app for the session and re-proposes it next session).
 2. **Check** — **Find & run** finds your AccountId and launches the check as soon as it is found; you
    can also **Paste** a known 24-hex id or reuse the **saved** one. The finder alone lives in
    **Settings**.

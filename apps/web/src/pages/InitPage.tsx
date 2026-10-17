@@ -1,12 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { looksLikeAccountId, type SettingsUpdate } from '@tennotools/profile-check-core/web';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { Brand } from '../components/Brand';
 import { Card } from '../components/Card';
 import { buttonGhost, buttonPrimary, inputClass, labelClass } from '../components/controls';
+import { Footer } from '../components/Footer';
 import { GetIdModal } from '../components/GetIdModal';
 import { fetchSettings, updateSettings } from '../lib/api';
-import { clearInitSkip, SAMPLE_ACCOUNT_ID, skipInit } from '../lib/setup';
+import { clearInitSkip, needsSetup, SAMPLE_ACCOUNT_ID, skipInit } from '../lib/setup';
 
 export function InitPage() {
   const navigate = useNavigate();
@@ -44,103 +46,114 @@ export function InitPage() {
     navigate('/');
   };
 
+  // Already configured? The wizard has nothing to do — back to the app.
+  if (settingsQuery.isSuccess && !needsSetup(settingsQuery.data)) {
+    return <Navigate to="/" replace />;
+  }
+
   return (
-    <div className="space-y-6">
-      <Card title="First run" sub="a quick setup before your first check">
-        <p className="text-sm text-muted">
-          Nothing is configured yet. Add your ScraperAPI key (optional) and your AccountId — or try the tool right away
-          on the public sample profile.
-        </p>
+    <div className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4">
+      <header className="pb-6 pt-12 text-center">
+        <Brand />
+      </header>
+      <main className="flex-1 pb-16">
+        <Card title="First run" sub="a quick setup before your first check">
+          <p className="text-sm text-muted">
+            Nothing is configured yet, so the app shows this one-time setup first. Add your ScraperAPI key (optional)
+            and your AccountId — or try the tool right away on the public sample profile.
+          </p>
 
-        <div className="mt-5 space-y-5">
-          <div>
-            <label className={labelClass} htmlFor="initKey">
-              ScraperAPI key
-            </label>
-            <input
-              id="initKey"
-              type="password"
-              className={inputClass}
-              placeholder={
-                hasKey ? `saved (${settingsQuery.data?.scraperApiKeyMask}) — type to replace` : 'not set — optional'
-              }
-              value={key}
-              onChange={(event) => setKey(event.target.value)}
-              autoComplete="off"
-            />
-            <p className="mt-1 text-xs text-muted">
-              Optional — only needed for proxy routing or as a network-failure fallback.
-            </p>
-          </div>
-
-          <div>
-            <label className={labelClass} htmlFor="initAccountId">
-              AccountId (24 hex)
-            </label>
-            <div className="flex gap-2">
+          <div className="mt-5 space-y-5">
+            <div>
+              <label className={labelClass} htmlFor="initKey">
+                ScraperAPI key
+              </label>
               <input
-                id="initAccountId"
+                id="initKey"
+                type="password"
                 className={inputClass}
-                value={accountId}
-                onChange={(event) => setAccountId(event.target.value)}
-                placeholder={SAMPLE_ACCOUNT_ID}
-                spellCheck={false}
+                placeholder={
+                  hasKey ? `saved (${settingsQuery.data?.scraperApiKeyMask}) — type to replace` : 'not set — optional'
+                }
+                value={key}
+                onChange={(event) => setKey(event.target.value)}
                 autoComplete="off"
               />
+              <p className="mt-1 text-xs text-muted">
+                Optional — only needed for proxy routing or as a network-failure fallback.
+              </p>
+            </div>
+
+            <div>
+              <label className={labelClass} htmlFor="initAccountId">
+                AccountId (24 hex)
+              </label>
+              <div className="flex gap-2">
+                <input
+                  id="initAccountId"
+                  className={inputClass}
+                  value={accountId}
+                  onChange={(event) => setAccountId(event.target.value)}
+                  placeholder={SAMPLE_ACCOUNT_ID}
+                  spellCheck={false}
+                  autoComplete="off"
+                />
+                <button
+                  type="button"
+                  className={`${buttonGhost} shrink-0`}
+                  onClick={() => setModalOpen(true)}
+                  disabled={save.isPending}
+                >
+                  Find my Account ID
+                </button>
+              </div>
+              {showInvalid ? (
+                <p className="mt-1 text-xs text-warn">Not a plausible AccountId — 24 hex characters.</p>
+              ) : null}
+              <p className="mt-1 text-xs text-muted">
+                The helper opens a temporary Chromium for a manual warframe.com login (nothing is stored) and fills your
+                id automatically — only needed once.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
               <button
                 type="button"
-                className={`${buttonGhost} shrink-0`}
-                onClick={() => setModalOpen(true)}
+                className={buttonPrimary}
+                disabled={save.isPending || (!key.trim() && !idValid)}
+                onClick={() => save.mutate('entered')}
+              >
+                {save.isPending ? 'Saving…' : 'Save and start'}
+              </button>
+              <button
+                type="button"
+                className={buttonGhost}
+                disabled={save.isPending}
+                onClick={() => save.mutate('sample')}
+              >
+                Try with the sample account
+              </button>
+              <button
+                type="button"
+                className="text-xs text-muted underline decoration-dotted hover:text-ink disabled:opacity-40"
+                onClick={skip}
                 disabled={save.isPending}
               >
-                Find my Account ID
+                Continue without saving
               </button>
+              {notice ? <span className="text-xs text-danger">{notice}</span> : null}
             </div>
-            {showInvalid ? (
-              <p className="mt-1 text-xs text-warn">Not a plausible AccountId — 24 hex characters.</p>
-            ) : null}
-            <p className="mt-1 text-xs text-muted">
-              The helper opens a temporary Chromium for a manual warframe.com login (nothing is stored) and fills your
-              id automatically — only needed once.
+
+            <p className="text-xs text-muted">
+              The sample is [DE]Rebecca's public profile ({SAMPLE_ACCOUNT_ID}) — a real account you can always test
+              against. Switch to your own id anytime in Settings.
             </p>
           </div>
+        </Card>
 
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              className={buttonPrimary}
-              disabled={save.isPending || (!key.trim() && !idValid)}
-              onClick={() => save.mutate('entered')}
-            >
-              {save.isPending ? 'Saving…' : 'Save and start'}
-            </button>
-            <button
-              type="button"
-              className={buttonGhost}
-              disabled={save.isPending}
-              onClick={() => save.mutate('sample')}
-            >
-              Try with the sample account
-            </button>
-            <button
-              type="button"
-              className="text-xs text-muted underline decoration-dotted hover:text-ink disabled:opacity-40"
-              onClick={skip}
-              disabled={save.isPending}
-            >
-              Continue without saving
-            </button>
-            {notice ? <span className="text-xs text-danger">{notice}</span> : null}
-          </div>
-
-          <p className="text-xs text-muted">
-            The sample is [DE]Rebecca's public profile ({SAMPLE_ACCOUNT_ID}) — a real account you can always test
-            against. Switch to your own id anytime in Settings.
-          </p>
-        </div>
-      </Card>
-
-      <GetIdModal open={modalOpen} onClose={() => setModalOpen(false)} onUse={setAccountId} />
+        <GetIdModal open={modalOpen} onClose={() => setModalOpen(false)} onUse={setAccountId} />
+      </main>
+      <Footer />
     </div>
   );
 }
