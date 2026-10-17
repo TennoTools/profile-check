@@ -75,11 +75,25 @@ apps/server      Fastify on 127.0.0.1:8787 · better-sqlite3 history (data/app.s
                  SSE live progress · Playwright Get-ID job · serves the built web app
 apps/web         React 19 + Vite + Tailwind 4 GUI (black/gold TennoTools theme)
 scripts/         check-once.ts — one-shot terminal check (parity / fixture capture)
+                 launch.mjs — quick-launch logic behind launch.bat / launch.sh
 docs/            static GitHub Pages site: landing, guide, the 13 checks (same theme, no JS)
 ```
 
 Everything is local-only: the server binds `127.0.0.1`, the ScraperAPI key never leaves the machine
 (it lives in SQLite and is only echoed back masked), and there is no telemetry of any kind.
+
+## Quick launch (no terminal skills)
+
+Only a [Node.js ≥ 22.12](https://nodejs.org) install is needed, the launcher handles the rest:
+
+- **Windows** — double-click **`launch.bat`**
+- **Linux / macOS** — `./launch.sh` (first time only: `chmod +x launch.sh`)
+
+It checks Node, runs `npm install` on the very first launch, downloads the Chromium helper for
+**Find my Account ID** (~130 MB, one time), rebuilds the app whenever the sources changed, then starts it
+in production mode on `http://127.0.0.1:8787` and opens your browser. Later launches take seconds —
+nothing is re-installed or re-built unless needed. Keep its window open while you use the app: closing
+it stops Profile Check.
 
 ## Quick start (dev)
 
