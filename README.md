@@ -47,6 +47,11 @@ in a local web GUI (TennoTools theme) with run history.
 </p>
 
 <p align="center">
+  <img src="docs/assets/screens/web-run_progress-page.png" alt="Run in progress" width="800" /><br />
+  <sub><i><b>Run in progress</b> — live SSE progress: fetch → parse → 13 checks → save; the exact request URL is shown.</i></sub>
+</p>
+
+<p align="center">
   <img src="docs/assets/screens/web-history-page.png" alt="History page" width="800" /><br />
   <sub><i><b>History</b> — every run with player, platform, MR, verdict and duration.</i></sub>
 </p>
