@@ -83,6 +83,7 @@ function openBrowser() {
 
 const apiTag = () => paint('36', '[api]');
 const webTag = () => paint('35', '[web]');
+const dbTag = () => paint('33', '[db]');
 const pendingRequests = new Map();
 
 // Turn the server's logs into short one-liners: `[api]` for the server itself
@@ -236,33 +237,81 @@ async function main() {
   }
 
   step('Starting the app...');
-  const server = spawnTool('npm', ['start'], { cwd: root, stdio: ['ignore', 'pipe', 'pipe'] });
+  const server = spawnTool('npm', ['start'], {
+    cwd: root,
+    stdio: ['ignore', 'pipe', 'pipe'],
+    // POSIX: give the npm/tsx/node tree its own process group so stop() can
+    // signal all of it at once. Windows uses taskkill /T instead.
+    detached: !isWindows,
+  });
   server.on('error', (error) => fail(`Could not start the app: ${error.message}`));
   pipeServerOutput(server.stdout);
   pipeServerOutput(server.stderr);
 
   let stopping = false;
+  server.on('exit', (code) => {
+    if (stopping) return; // stop() owns the exit - it still has a checkpoint to run.
+    process.exit(code || 0);
+  });
 
   function shutdown() {
     if (server.pid && server.exitCode === null) {
       if (isWindows) {
         spawnSync('taskkill', ['/pid', String(server.pid), '/T', '/F'], { stdio: 'ignore' });
       } else {
-        server.kill('SIGTERM');
+        try {
+          process.kill(-server.pid, 'SIGTERM');
+        } catch {
+          server.kill('SIGTERM');
+        }
       }
     }
   }
 
-  function stop() {
-    if (stopping) return;
-    stopping = true;
-    console.log(`\n${paint('1', 'Stopping Profile Check')} - see you next time!\n`);
-    shutdown();
-    setTimeout(() => process.exit(0), 300);
+  function waitForExit(ms) {
+    if (server.exitCode !== null) return Promise.resolve(true);
+    return new Promise((finish) => {
+      const timer = setTimeout(() => finish(false), ms);
+      server.once('exit', () => {
+        clearTimeout(timer);
+        finish(true);
+      });
+    });
   }
 
-  for (const signal of ['SIGINT', 'SIGTERM', 'SIGBREAK']) {
-    process.on(signal, () => stop());
+  // Fold the WAL into app.sqlite so the file stays self-contained even after a
+  // hard stop. The script is safe while the server is up; failing to check
+  // point never blocks quitting - it is only worth a warning line.
+  function checkpointDatabase() {
+    const result = spawnToolSync('npm', ['run', '--silent', 'db:checkpoint'], {
+      cwd: root,
+      encoding: 'utf8',
+      timeout: 15_000,
+    });
+    const lines = `${result.stdout || ''}\n${result.stderr || ''}`.split(/\r?\n/).map((line) => line.trim());
+    const summary = lines.find((line) => /^[✓⚠✗]/.test(line));
+    if (summary) {
+      console.log(`${dbTag()} ${summary}`);
+    } else if (result.status !== 0) {
+      console.log(`${dbTag()} checkpoint skipped - data is safe, it will be merged on the next start`);
+    }
+  }
+
+  async function stop() {
+    if (stopping) return;
+    stopping = true;
+    console.log(`\n${paint('1', 'Stopping Profile Check')} - see you next time!`);
+    shutdown();
+    await waitForExit(10_000);
+    checkpointDatabase();
+    console.log('');
+    process.exit(0);
+  }
+
+  for (const signal of ['SIGINT', 'SIGTERM', 'SIGBREAK', 'SIGHUP']) {
+    process.on(signal, () => {
+      void stop();
+    });
   }
 
   // Press Q to stop cleanly (Ctrl+C works too). Only when a real terminal is attached.
@@ -270,7 +319,7 @@ async function main() {
     process.stdin.setRawMode(true);
     process.stdin.resume();
     process.stdin.on('data', (data) => {
-      if (data.includes(0x03) || /q/i.test(data.toString())) stop();
+      if (data.includes(0x03) || /q/i.test(data.toString())) void stop();
     });
   }
 
@@ -293,7 +342,6 @@ async function main() {
   }
   if (stopping) return;
 
-  server.on('exit', (code) => process.exit(stopping ? 0 : code || 0));
   console.log(`\nThe app is ready: ${paint('1', appUrl)}`);
   openBrowser();
   console.log('Opening your browser - first time? Just follow the setup wizard on the page.');

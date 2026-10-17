@@ -53,7 +53,7 @@ export function buildApp(options: BuildAppOptions = {}): FastifyInstance {
   const runBus = new EventBus<CheckEvent>();
   const getIdBus = new EventBus<GetIdEvent>();
 
-  const app = Fastify({ logger: options.logger ?? true });
+  const app = Fastify({ logger: options.logger ?? true, forceCloseConnections: true });
 
   let activeGetIdJob: DiscoverJobHandle | undefined;
 
@@ -197,6 +197,12 @@ export function buildApp(options: BuildAppOptions = {}): FastifyInstance {
 
   app.addHook('onClose', async () => {
     activeGetIdJob?.cancel();
+    try {
+      db.pragma('wal_checkpoint(TRUNCATE)');
+      app.log.info('WAL checkpointed - database is self-contained');
+    } catch (error) {
+      app.log.warn(error, 'WAL checkpoint failed - it will be merged on the next start');
+    }
     db.close();
   });
 

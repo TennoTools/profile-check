@@ -48,6 +48,12 @@ export function openDb(dbPath: string): Database.Database {
   const db = new Database(dbPath);
   db.pragma('journal_mode = WAL');
   db.exec(DDL);
+  // Fold in whatever a previous hard stop left in the WAL (a no-op otherwise).
+  try {
+    db.pragma('wal_checkpoint(TRUNCATE)');
+  } catch {
+    // Another instance may be using the database - the leftover WAL is safe.
+  }
   return db;
 }
 

@@ -18,8 +18,23 @@ try {
   process.exit(1);
 }
 
+const SHUTDOWN_TIMEOUT_MS = 5_000;
+
+let closing = false;
+const shutdown = async (): Promise<void> => {
+  if (closing) return;
+  closing = true;
+  // Never hang forever (a browser can hold an SSE stream open): cap the close.
+  // The WAL checkpoint runs in the onClose hook whenever it wins the race.
+  await Promise.race([
+    app.close().catch(() => undefined),
+    new Promise((done) => setTimeout(done, SHUTDOWN_TIMEOUT_MS)),
+  ]);
+  process.exit(0);
+};
+
 for (const signal of ['SIGINT', 'SIGTERM'] as const) {
   process.on(signal, () => {
-    void app.close().then(() => process.exit(0));
+    void shutdown();
   });
 }

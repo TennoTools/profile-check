@@ -13,7 +13,7 @@
 <p align="center">
   <img alt="node ≥ 22.12" src="https://img.shields.io/badge/node-%E2%89%A5%2022.12-339933" />
   <img alt="TypeScript 7" src="https://img.shields.io/badge/TypeScript-7-3178C6" />
-  <img alt="57 tests passing" src="https://img.shields.io/badge/tests-57%20passing-2ea44f" />
+  <img alt="58 tests passing" src="https://img.shields.io/badge/tests-58%20passing-2ea44f" />
   <img alt="network — local-only" src="https://img.shields.io/badge/network-local--only-444444" />
   <img alt="docs — GitHub Pages" src="https://img.shields.io/badge/docs-GitHub%20Pages-ffd700" />
 </p>
@@ -93,8 +93,8 @@ It checks Node, runs `npm install` on the very first launch, downloads the Chrom
 **Find my Account ID** (~130 MB, one time), rebuilds the app whenever the sources changed, then starts it
 in production mode on `http://127.0.0.1:8787` and opens your browser. Later launches take seconds —
 nothing is re-installed or re-built unless needed. Keep its window open while you use the app: it shows
-compact logs (`[web]` for pages and assets, `[api]` for the server) and pressing `Q` stops Profile Check
-cleanly.
+compact logs (`[web]` for pages and assets, `[api]` for the server, `[db]` for the database) and pressing
+`Q` stops Profile Check cleanly - the SQLite WAL is checkpointed on the way out.
 
 ## Quick start (dev)
 
@@ -167,12 +167,12 @@ npm start         # API + GUI on http://127.0.0.1:8787
 | `npm run dev` | API (node --watch + tsx) + web (Vite) together — GUI shows an offline banner if the API is down |
 | `npm run build` | typecheck all packages + build the web app into `apps/web/dist` |
 | `npm start` | serve API + built GUI on `http://127.0.0.1:8787` |
-| `npm test` | vitest — 57 tests (unit + API integration + web API client + offline live-fixture parity) |
+| `npm test` | vitest — 58 tests (unit + API integration + web API client + offline live-fixture parity) |
 | `npm run typecheck` | tsc on core, server and web |
 | `npm run lint` / `npm run format` | Biome check / auto-fix |
 | `npm run check:live` | one-shot terminal check against DE (1 request), refreshes the test fixture |
 | `npm run check:offline` | same pipeline on the saved fixture, no network |
-| `npm run db:checkpoint` | fold the SQLite WAL into `data/app.sqlite` so any viewer can read it |
+| `npm run db:checkpoint` | fold the SQLite WAL into `data/app.sqlite` so any viewer can read it (also run automatically on every launcher stop) |
 
 ## Configuration
 
@@ -187,10 +187,10 @@ the settings DB; the GUI is the source of truth afterwards):
 Environment overrides: `TENNOTOOLS_HOST` (default `127.0.0.1`), `TENNOTOOLS_PORT` (default `8787`),
 `TENNOTOOLS_DB_PATH` (default `data/app.sqlite`).
 
-Inspecting the database: run history lives in `data/app.sqlite` (SQLite, WAL mode). While the server
-is running, recent rows may still be in `app.sqlite-wal` — stop the server or run
-`npm run db:checkpoint` before opening the file in a viewer. Never upload it anywhere: the settings
-table holds your ScraperAPI key in clear text.
+Inspecting the database: run history lives in `data/app.sqlite` (SQLite, WAL mode). The WAL is
+checkpointed automatically on every clean stop (the launcher prints a `[db]` line) and on the next
+start after a crash, so the file is self-contained; `npm run db:checkpoint` remains available any
+time. Never upload it anywhere: the settings table holds your ScraperAPI key in clear text.
 
 ## Local API (for integrations)
 

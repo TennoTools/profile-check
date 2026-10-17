@@ -37,7 +37,8 @@
           <p class="small muted">
             No terminal skills? Windows: double-click <code>launch.bat</code> — Linux/macOS:
             <code>./launch.sh</code> (first time only: <code>chmod +x launch.sh</code>). It installs, builds and
-            starts everything, then opens your browser — press <code>Q</code> in the launcher window to stop it.
+            starts everything, then opens your browser — press <code>Q</code> in the launcher window to stop it
+            (the SQLite WAL is checkpointed on the way out).
           </p>
           <ol>
             <li>
@@ -104,7 +105,7 @@
                 <tr><td><code>npm start</code></td><td>serve API + built GUI on <code>http://127.0.0.1:8787</code></td></tr>
                 <tr>
                   <td><code>npm test</code></td>
-                  <td>vitest — 57 tests (unit + API integration + web API client + offline live-fixture parity)</td>
+                  <td>vitest — 58 tests (unit + API integration + web API client + offline live-fixture parity)</td>
                 </tr>
                 <tr><td><code>npm run typecheck</code></td><td>tsc on core, server and web</td></tr>
                 <tr><td><code>npm run lint</code> / <code>format</code></td><td>Biome check / auto-fix</td></tr>
@@ -118,7 +119,7 @@
                 </tr>
                 <tr>
                   <td><code>npm run db:checkpoint</code></td>
-                  <td>fold the SQLite WAL into <code>data/app.sqlite</code> so any viewer can read it</td>
+                  <td>fold the SQLite WAL into <code>data/app.sqlite</code> so any viewer can read it (also run automatically on every launcher stop)</td>
                 </tr>
               </tbody>
             </table>
@@ -150,10 +151,10 @@
             <code>data/app.sqlite</code>).
           </p>
           <div class="callout">
-            <b>Never upload the database.</b> Run history lives in <code>data/app.sqlite</code> (SQLite, WAL mode);
-            while the server runs, recent rows may still be in <code>app.sqlite-wal</code> — stop the server or run
-            <code>npm run db:checkpoint</code> before opening the file in a viewer. The settings table holds your
-            ScraperAPI key in clear text.
+            <b>Never upload the database.</b> Run history lives in <code>data/app.sqlite</code> (SQLite, WAL mode).
+            The WAL is checkpointed automatically on every clean stop (and on the next start after a crash), so the
+            file is self-contained — <code>npm run db:checkpoint</code> remains available any time. The settings
+            table holds your ScraperAPI key in clear text.
           </div>
         </div>
       </article>
