@@ -1,12 +1,13 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { looksLikeAccountId, type Platform } from '@tennotools/profile-check-core/web';
 import { type FormEvent, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card } from '../components/Card';
 import { buttonAccent, buttonGhost, buttonPrimary, inputClass, labelClass } from '../components/controls';
 import { GetIdModal } from '../components/GetIdModal';
 import { PlatformSelect } from '../components/PlatformSelect';
 import { fetchSettings, startRun, updateSettings } from '../lib/api';
+import { SAMPLE_ACCOUNT_ID } from '../lib/setup';
 
 /** First plausible AccountId (24 hex ObjectId) found in a free-form text. */
 const findCandidate = (text: string): string | null => {
@@ -28,7 +29,6 @@ export function CheckPage() {
   const [pasteMessage, setPasteMessage] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [runAfterFind, setRunAfterFind] = useState(false);
 
   useEffect(() => {
     const settings = settingsQuery.data;
@@ -70,11 +70,10 @@ export function CheckPage() {
     void updateSettings({ defaultAccountId: id })
       .then(() => queryClient.invalidateQueries({ queryKey: ['settings'] }))
       .catch(() => {});
-    if (runAfterFind) void launchRun(id);
+    void launchRun(id);
   };
 
-  const openFinder = (runAfter: boolean): void => {
-    setRunAfterFind(runAfter);
+  const openFinder = (): void => {
     setModalOpen(true);
   };
 
@@ -115,7 +114,7 @@ export function CheckPage() {
                     setAccountId(event.target.value);
                     setPasteMessage(null);
                   }}
-                  placeholder="505875fb1a4d80894a000000"
+                  placeholder={SAMPLE_ACCOUNT_ID}
                   disabled={busy}
                   spellCheck={false}
                   autoComplete="off"
@@ -132,15 +131,19 @@ export function CheckPage() {
               <div className="mt-1.5 space-y-1">
                 {showInvalid ? (
                   <p className="text-xs text-warn">
-                    Not a plausible AccountId — 24 hex characters, or find it with the buttons below.
+                    Not a plausible AccountId — 24 hex characters, or find it with Find &amp; run below.
                   </p>
                 ) : null}
                 {pasteMessage ? <p className="text-xs text-warn">{pasteMessage}</p> : null}
                 {trimmed.length === 0 && !pasteMessage ? (
                   <p className="text-xs text-muted">
-                    No AccountId at hand? <span className="text-accent">Find my Account ID</span> detects it from a
-                    quick warframe.com login (nothing is stored), or <span className="text-accent">Find &amp; run</span>{' '}
-                    launches the check as soon as it is found.
+                    No AccountId at hand? <span className="text-accent">Find &amp; run</span> detects it from a quick
+                    warframe.com login (nothing is stored) and launches the check as soon as it is found — the finder
+                    alone lives in{' '}
+                    <Link to="/settings" className="text-accent underline decoration-dotted">
+                      Settings
+                    </Link>
+                    .
                   </p>
                 ) : null}
                 {usableSavedId && usableSavedId !== trimmed ? (
@@ -182,11 +185,8 @@ export function CheckPage() {
             <button type="submit" className={buttonPrimary} disabled={!valid || busy}>
               {busy ? 'Starting…' : 'Run check'}
             </button>
-            <button type="button" className={buttonAccent} onClick={() => openFinder(true)} disabled={busy}>
+            <button type="button" className={buttonAccent} onClick={openFinder} disabled={busy}>
               Find &amp; run
-            </button>
-            <button type="button" className={buttonGhost} onClick={() => openFinder(false)} disabled={busy}>
-              Find my Account ID
             </button>
           </div>
         </form>
@@ -195,12 +195,7 @@ export function CheckPage() {
           fetch a profile. One request per run — no spam.
         </p>
       </Card>
-      <GetIdModal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        onUse={useFoundId}
-        useLabel={runAfterFind ? 'Use & run check' : undefined}
-      />
+      <GetIdModal open={modalOpen} onClose={() => setModalOpen(false)} onUse={useFoundId} useLabel="Use & run check" />
     </div>
   );
 }

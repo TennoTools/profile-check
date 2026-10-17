@@ -13,7 +13,7 @@
 <p align="center">
   <img alt="node ≥ 22.12" src="https://img.shields.io/badge/node-%E2%89%A5%2022.12-339933" />
   <img alt="TypeScript 7" src="https://img.shields.io/badge/TypeScript-7-3178C6" />
-  <img alt="53 tests passing" src="https://img.shields.io/badge/tests-53%20passing-2ea44f" />
+  <img alt="57 tests passing" src="https://img.shields.io/badge/tests-57%20passing-2ea44f" />
   <img alt="network — local-only" src="https://img.shields.io/badge/network-local--only-444444" />
 </p>
 
@@ -89,12 +89,14 @@ npm start         # API + GUI on http://127.0.0.1:8787
 
 ## First run
 
-1. **Settings** — paste your ScraperAPI key (optional, only needed for proxy routing or as a
-   network-failure fallback) and pick your default platform. Save.
-2. **Check** — no AccountId yet? Press **Find & run**: it opens a temporary Chromium for a manual
-   warframe.com login (nothing stored), detects your AccountId, saves it as default and launches the
-   check automatically. (You can also **Find my Account ID** without running, **Paste** a known
-   24-hex id, or reuse the **saved** one.)
+1. **`/init` wizard** — with nothing configured yet, opening the app lands on a first-run page: paste
+   your ScraperAPI key (optional), find your AccountId with **Find my Account ID** (temporary
+   Chromium, manual login, nothing stored) — or press **Try with the sample account** to test the
+   pipeline on [DE]Rebecca's public profile. Saving a key or an id leaves the wizard for good
+   (skipping re-proposes it on the next session).
+2. **Check** — **Find & run** finds your AccountId and launches the check as soon as it is found; you
+   can also **Paste** a known 24-hex id or reuse the **saved** one. The finder alone lives in
+   **Settings**.
 3. Watch the live progress (SSE) and read the verdict; each run is kept in **History**.
 
 ## What a check does
@@ -134,7 +136,7 @@ npm start         # API + GUI on http://127.0.0.1:8787
 | `npm run dev` | API (node --watch + tsx) + web (Vite) together — GUI shows an offline banner if the API is down |
 | `npm run build` | typecheck all packages + build the web app into `apps/web/dist` |
 | `npm start` | serve API + built GUI on `http://127.0.0.1:8787` |
-| `npm test` | vitest — 53 tests (unit + API integration + web API client + offline live-fixture parity) |
+| `npm test` | vitest — 57 tests (unit + API integration + web API client + offline live-fixture parity) |
 | `npm run typecheck` | tsc on core, server and web |
 | `npm run lint` / `npm run format` | Biome check / auto-fix |
 | `npm run check:live` | one-shot terminal check against DE (1 request), refreshes the test fixture |
