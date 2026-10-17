@@ -1,12 +1,55 @@
-# TennoTools Profile Check — the Warframe profile-parser canary
+<p align="center">
+  <img src="screens/hero.png" alt="TennoTools — Profile Check" width="640" />
+</p>
+
+<h1 align="center">TennoTools Profile Check</h1>
+
+<p align="center">
+  <b>The Warframe profile-parser canary</b><br />
+  Local live-check for the Warframe public profile endpoint — fetch a profile, parse it,<br />
+  run 13 frozen validation checks, get a verdict.
+</p>
+
+<p align="center">
+  <img alt="node ≥ 22.12" src="https://img.shields.io/badge/node-%E2%89%A5%2022.12-339933" />
+  <img alt="TypeScript 7" src="https://img.shields.io/badge/TypeScript-7-3178C6" />
+  <img alt="51 tests passing" src="https://img.shields.io/badge/tests-51%20passing-2ea44f" />
+  <img alt="network — local-only" src="https://img.shields.io/badge/network-local--only-444444" />
+</p>
 
 Local tool that verifies **live Warframe profile data** served by Digital Extremes still parses
 correctly: fetch a profile by AccountId, parse it, run 13 frozen validation checks, show a verdict —
 in a local web GUI (TennoTools theme) with run history.
 
-The v1 CLI (`check-profile.mjs`, `get-account-id.mjs`) is **archived and still runnable** in
-[`legacy/`](legacy/README.md) — see [`legacy/SUMMARY.md`](legacy/SUMMARY.md) for the frozen v1 reference
-(endpoints, checks, exit codes, hard-won domain knowledge).
+- **13 frozen checks** — v1 labels and critical flags, verdict `ok` / `warnings` / `broken`
+- **Live progress** — SSE stream: fetch → parse → validate → persist
+- **Run history** — every run stored locally in SQLite (`data/app.sqlite`)
+- **Find my Account ID** — a temporary Chromium for a manual warframe.com login; your id is detected
+  and saved, nothing else
+- **Optional ScraperAPI fallback** — one retry on network failure; the key never leaves the machine
+- **Local-only by design** — GUI and API both on `127.0.0.1`, no telemetry of any kind
+
+## Screenshots
+
+<p align="center">
+  <img src="screens/web-check-page.png" alt="Check page" width="800" /><br />
+  <sub><i><b>Check</b> — platform, pasted or saved AccountId, one request per run.</i></sub>
+</p>
+
+<p align="center">
+  <img src="screens/web-history-page.png" alt="History page" width="800" /><br />
+  <sub><i><b>History</b> — every run with player, platform, MR, verdict and duration.</i></sub>
+</p>
+
+<p align="center">
+  <img src="screens/web-settings-page.png" alt="Settings page" width="800" /><br />
+  <sub><i><b>Settings</b> — the ScraperAPI key stays server-side (SQLite) and is never sent to the browser.</i></sub>
+</p>
+
+<p align="center">
+  <img src="screens/banner-shot.png" alt="Find my Account ID in action" width="800" /><br />
+  <sub><i><b>Find my Account ID</b> — the temporary browser with its TennoTools banner; login is manual, nothing is kept.</i></sub>
+</p>
 
 ## Architecture (npm workspaces, TypeScript everywhere)
 
@@ -32,9 +75,10 @@ npx playwright install chromium   # only needed for the "Find my Account ID" hel
 npm run dev                        # API on :8787 + GUI on http://localhost:5173
 ```
 
-Open http://localhost:5173 — Vite proxies `/api` to the local server (SSE works through it). If the API is
-still booting (or crashed), the page answers with a clean 503 and the GUI shows an **offline banner + Retry
-buttons** — no terminal stack spam, and everything recovers on its own the moment the API answers again.
+Open http://localhost:5173 — Vite proxies `/api` to the local server (SSE works through it). If the
+API is still booting (or crashed), the page answers with a clean 503 and the GUI shows an **offline
+banner + Retry buttons** — no terminal stack spam, and everything recovers on its own the moment the
+API answers again.
 
 ## Production mode (single process)
 
@@ -49,8 +93,8 @@ npm start         # API + GUI on http://127.0.0.1:8787
    network-failure fallback) and pick your default platform. Save.
 2. **Check** — no AccountId yet? Press **Find & run**: it opens a temporary Chromium for a manual
    warframe.com login (nothing stored), detects your AccountId, saves it as default and launches the
-   check automatically. (You can also **Find my Account ID** without running, **Paste** a known 24-hex
-   id, or reuse the **saved** one.)
+   check automatically. (You can also **Find my Account ID** without running, **Paste** a known
+   24-hex id, or reuse the **saved** one.)
 3. Watch the live progress (SSE) and read the verdict; each run is kept in **History**.
 
 ## What a check does
@@ -61,8 +105,25 @@ npm start         # API + GUI on http://127.0.0.1:8787
    With a ScraperAPI key, a network-level failure triggers a single retry through the proxy
    (`direct → scraperapi-fallback`). HTTP error statuses are never retried.
 2. **Parse** — `new ProfileParser(data, 'en', withItem=false)`.
-3. **Validate** — the 13 v1 checks (6 critical), labels frozen; full table in
-   [`legacy/SUMMARY.md`](legacy/SUMMARY.md).
+3. **Validate** — the 13 frozen checks (6 critical), run through a safe wrapper (an exception becomes
+   a failed check):
+
+| # | Check (exact label) | Critical |
+| --- | --- | --- |
+| 1 | `profile.displayName is a non-empty string` | yes |
+| 2 | `profile.accountId matches the requested id` | no |
+| 3 | `profile.accountId is a 24-char hex ObjectId` | yes |
+| 4 | `profile.masteryRank is an integer >= 0` | yes |
+| 5 | `profile.created is a valid Date` | yes |
+| 6 | `profile.loadout is built (suits/xpInfo arrays)` | yes |
+| 7 | `profile.missions is an array` | no |
+| 8 | `profile.challengeProgress is an array (Nightwave)` | no |
+| 9 | `profile.intrinsics is an object` | no |
+| 10 | `stats.timePlayedSec is a finite number` | yes |
+| 11 | `stats.missionsCompleted is a number` | no |
+| 12 | `stats.weapons and stats.enemies are arrays` | no |
+| 13 | `xpCacheExpiryDate / ceremonyResetDate are parsed Dates` | no |
+
 4. **Verdict** — any critical fail → `broken`; only non-critical fails → `warnings`; else `ok`.
 5. **Persist** — summary + checks + request metadata in `data/app.sqlite`.
 
@@ -137,8 +198,9 @@ npm test
 
 ## Legacy v1
 
-`legacy/` is the original JavaScript CLI, fully runnable and self-contained (`legacy/node_modules/`
-and `legacy/.env` are included):
+The original JavaScript CLI (`check-profile.mjs`, `get-account-id.mjs` and a first HTML GUI) is
+archived in `legacy/` — still fully runnable, kept out of this repository (it embeds its own
+`node_modules/` and `.env`):
 
 ```bash
 cd legacy && npm start
