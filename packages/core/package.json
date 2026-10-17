@@ -1,0 +1,21 @@
+{
+  "name": "@tennotools/profile-check-core",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared logic: platforms, fetch, parser wrapper, checks, schemas",
+  "exports": {
+    ".": "./src/index.ts",
+    "./web": "./src/web.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@wfcd/items": "^1.1276.25",
+    "@wfcd/profile-parser": "^2.0.20",
+    "warframe-worldstate-data": "^3.17.2",
+    "zod": "^4.6.7"
+  }
+}

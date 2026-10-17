@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "TennoTools - Prevention Banner (GET-ID)",
+  "version": "1.0",
+  "description": "Temporary banner shown by the get-id script — lives only in the temp browser profile.",
+  "content_scripts": [
+    {
+      "matches": ["*://warframe.com/*", "*://*.warframe.com/*"],
+      "js": ["banner.js"],
+      "css": ["banner.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

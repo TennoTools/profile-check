@@ -1,0 +1,2690 @@
+{
+  "Results": [
+    {
+      "AccountId": {
+        "$oid": "6acc3cbc4499b934fa0956e2"
+      },
+      "DisplayName": "-Siova",
+      "PlayerLevel": 2,
+      "LoadOutPreset": {
+        "PresetIcon": "",
+        "Favorite": false,
+        "s": {
+          "ItemId": {
+            "$oid": "6ad2a5ce6c77f7980b0f54d2"
+          },
+          "mod": 0,
+          "cus": 0
+        },
+        "p": {
+          "ItemId": {
+            "$oid": "6ad03ae24d4a610d3600ced8"
+          },
+          "mod": 0,
+          "cus": 0
+        },
+        "l": {
+          "ItemId": {
+            "$oid": "6ad2338e99bdd427e00b9ba8"
+          },
+          "mod": 0,
+          "cus": 0
+        },
+        "m": {
+          "ItemId": {
+            "$oid": "6ad20fa19685f1b88a09b92d"
+          },
+          "mod": 0,
+          "cus": 0
+        }
+      },
+      "LoadOutInventory": {
+        "WeaponSkins": [
+          {
+            "ItemType": "/Lotus/Upgrades/Skins/Rhino/RhinoHelmet"
+          },
+          {
+            "ItemType": "/Lotus/Upgrades/Skins/Armor/Opula/OpulaArmorA"
+          },
+          {
+            "ItemType": "/Lotus/Upgrades/Skins/Armor/SentNewWarArmor/SentNewWarArmorL"
+          },
+          {
+            "ItemType": "/Lotus/Upgrades/Skins/Scarves/TnCharityRibbonSyandana"
+          },
+          {
+            "ItemType": "/Lotus/Upgrades/Skins/Armor/Opula/OpulaArmorC"
+          },
+          {
+            "ItemType": "/Lotus/Upgrades/Skins/MeleeDangles/PumpkinMeleeDangle"
+          }
+        ],
+        "Suits": [
+          {
+            "ItemType": "/Lotus/Powersuits/Rhino/Rhino",
+            "Configs": [
+              {
+                "Skins": [
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoHelmet",
+                  "/Lotus/Upgrades/Skins/Armor/Opula/OpulaArmorA",
+                  "/Lotus/Upgrades/Skins/Armor/SentNewWarArmor/SentNewWarArmorL",
+                  "",
+                  "",
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoNobleAnims",
+                  "/Lotus/Upgrades/Skins/Scarves/TnCharityRibbonSyandana",
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoSkin",
+                  "/Lotus/Upgrades/Skins/Armor/Opula/OpulaArmorC",
+                  "/Lotus/Upgrades/Skins/Armor/Opula/OpulaArmorA",
+                  "/Lotus/Upgrades/Skins/Armor/SentNewWarArmor/SentNewWarArmorL",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "",
+                  "",
+                  "/Lotus/Characters/Tenno/Infestation/Cyst/Cyst",
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoEffectsSetDefault",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "/Lotus/Upgrades/Skins/Voices/DefaultWarframeVoiceItem"
+                ],
+                "attcol": {
+                  "t0": -1,
+                  "t1": -14868958,
+                  "t2": -2848617,
+                  "t3": -14868958,
+                  "m0": -2848617,
+                  "m1": -14868958,
+                  "en": -7696737
+                },
+                "pricol": {
+                  "t0": -1,
+                  "t1": -14868958,
+                  "t2": -2848617,
+                  "t3": -14868958,
+                  "m0": -2848617,
+                  "m1": -14868958,
+                  "en": -7696737
+                },
+                "syancol": {
+                  "t0": -1,
+                  "t1": -14868958,
+                  "t2": -2848617,
+                  "t3": -14868958,
+                  "m0": -2848617,
+                  "m1": -14868958,
+                  "en": -7696737
+                }
+              },
+              {
+                "Skins": [
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoHelmet",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "",
+                  "",
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoNobleAnims",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoSkin",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "",
+                  "",
+                  "/Lotus/Characters/Tenno/Infestation/Cyst/Cyst"
+                ]
+              },
+              {
+                "Skins": [
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoHelmet",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "",
+                  "",
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoNobleAnims",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Rhino/RhinoSkin",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "/Lotus/Upgrades/Skins/Armor/WarframeDefaults/EmptyCustomization",
+                  "",
+                  "",
+                  "/Lotus/Characters/Tenno/Infestation/Cyst/Cyst"
+                ]
+              }
+            ],
+            "UpgradeVer": 101,
+            "InfestationDate": {
+              "$date": {
+                "$numberLong": "1792190378000"
+              }
+            },
+            "XP": 41828,
+            "ItemId": {
+              "$oid": "6ad2a5ce6c77f7980b0f54d2"
+            }
+          }
+        ],
+        "Pistols": [
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Pistol/AutoPistol",
+            "Configs": [
+              {
+                "Skins": ["", "", "/Lotus/Upgrades/Skins/HolsterCustomizations/PistolHipsR"],
+                "pricol": {
+                  "m0": -2848617,
+                  "m1": -14868958,
+                  "en": -3551779
+                }
+              },
+              {
+                "Skins": ["", "", "/Lotus/Upgrades/Skins/HolsterCustomizations/PistolHipsR"]
+              },
+              {
+                "Skins": ["", "", "/Lotus/Upgrades/Skins/HolsterCustomizations/PistolHipsR"]
+              }
+            ],
+            "Features": 1,
+            "UpgradeVer": 101,
+            "XP": 4172190,
+            "ItemId": {
+              "$oid": "6ad03ae24d4a610d3600ced8"
+            }
+          }
+        ],
+        "LongGuns": [
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Rifle/BurstRifle",
+            "Configs": [
+              {
+                "Skins": ["", "", "/Lotus/Upgrades/Skins/HolsterCustomizations/RifleUpperBack"],
+                "pricol": {
+                  "m0": -2848617,
+                  "m1": -14868958,
+                  "en": -3551779
+                }
+              },
+              {
+                "Skins": ["", "", "/Lotus/Upgrades/Skins/HolsterCustomizations/RifleUpperBack"]
+              },
+              {
+                "Skins": ["", "", "/Lotus/Upgrades/Skins/HolsterCustomizations/RifleUpperBack"]
+              }
+            ],
+            "UpgradeVer": 101,
+            "XP": 81597,
+            "ItemId": {
+              "$oid": "6ad2338e99bdd427e00b9ba8"
+            }
+          }
+        ],
+        "Melee": [
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Melee/LongSword/LongSword",
+            "Configs": [
+              {
+                "Skins": [
+                  "",
+                  "",
+                  "/Lotus/Upgrades/Skins/HolsterCustomizations/SwordUpperBack",
+                  "",
+                  "",
+                  "",
+                  "/Lotus/Upgrades/Skins/MeleeDangles/PumpkinMeleeDangle"
+                ],
+                "attcol": {
+                  "t0": -14737633,
+                  "t1": -4079167,
+                  "t2": -8912896,
+                  "t3": -4871067,
+                  "m0": -2848617,
+                  "m1": -14868958,
+                  "en": -3551779
+                },
+                "pricol": {
+                  "m0": -2848617,
+                  "m1": -14868958,
+                  "en": -3551779
+                }
+              },
+              {
+                "Skins": ["", "", "/Lotus/Upgrades/Skins/HolsterCustomizations/SwordUpperBack"]
+              },
+              {
+                "Skins": ["", "", "/Lotus/Upgrades/Skins/HolsterCustomizations/SwordUpperBack"]
+              }
+            ],
+            "UpgradeVer": 101,
+            "XP": 55790,
+            "ItemId": {
+              "$oid": "6ad20fa19685f1b88a09b92d"
+            }
+          }
+        ],
+        "XPInfo": [
+          {
+            "ItemType": "/Lotus/Powersuits/Volt/Volt",
+            "XP": 11907541
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Melee/Staff/Staff",
+            "XP": 4342204
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Rifle/Rifle",
+            "XP": 1094460
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/ThrowingWeapons/Kunai",
+            "XP": 458697
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/LongGuns/TnModQuestRifle/TnModQuestRifleWeapon",
+            "XP": 476966
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/LongGuns/TnRifleErsatz/TnRifleErsatzWeapon",
+            "XP": 1945051
+          },
+          {
+            "ItemType": "/Lotus/Weapons/MK1Series/MK1Bo",
+            "XP": 489785
+          },
+          {
+            "ItemType": "/Lotus/Weapons/MK1Series/MK1Furis",
+            "XP": 475385
+          },
+          {
+            "ItemType": "/Lotus/Types/Sentinels/SentinelPowersuits/TnSentinelCrossPowerSuit",
+            "XP": 13545693
+          },
+          {
+            "ItemType": "/Lotus/Types/Sentinels/SentinelWeapons/Gremlin",
+            "XP": 11257908
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Corpus/LongGuns/CrpFreezeRay/CrpFreezeRayRifle",
+            "XP": 1818282
+          },
+          {
+            "ItemType": "/Lotus/Weapons/MK1Series/MK1Furax",
+            "XP": 996024
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Pistol/AutoPistol",
+            "XP": 4172190
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Pistol/Pistol",
+            "XP": 845602
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Rifle/BoltoRifle",
+            "XP": 1714062
+          },
+          {
+            "ItemType": "/Lotus/Types/Game/KubrowPet/GuardKubrowPetPowerSuit",
+            "XP": 8166872
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Rifle/StartingRifle",
+            "XP": 6560327
+          },
+          {
+            "ItemType": "/Lotus/Powersuits/Archwing/StandardJetPack/StandardJetPack",
+            "XP": 14954
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Archwing/Primary/FoldingMachineGun/ArchMachineGun",
+            "XP": 16497
+          },
+          {
+            "ItemType": "/Lotus/Weapons/MK1Series/MK1Kunai",
+            "XP": 533657
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Melee/Hammer/HammerWeapon",
+            "XP": 452151
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Bows/HuntingBow",
+            "XP": 810680
+          },
+          {
+            "ItemType": "/Lotus/Weapons/MK1Series/MK1Paris",
+            "XP": 1553391
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Shotgun/Shotgun",
+            "XP": 1298786
+          },
+          {
+            "ItemType": "/Lotus/Weapons/MK1Series/MK1Strun",
+            "XP": 744917
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Archwing/Melee/Archsword/ArchSwordWeapon",
+            "XP": 4635
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Melee/LongSword/LongSword",
+            "XP": 55790
+          },
+          {
+            "ItemType": "/Lotus/Weapons/Tenno/Rifle/BurstRifle",
+            "XP": 81597
+          },
+          {
+            "ItemType": "/Lotus/Powersuits/Rhino/Rhino",
+            "XP": 41828
+          }
+        ]
+      },
+      "GuildId": {
+        "$oid": "6038fdedbff770322a648fcf"
+      },
+      "GuildName": "Sons Of Bloodz#111",
+      "GuildTier": 3,
+      "GuildXp": 644000,
+      "GuildClass": 10,
+      "GuildEmblem": true,
+      "ChallengeProgress": [
+        {
+          "Name": "MPHeadshotKills",
+          "Progress": 10
+        },
+        {
+          "Name": "Earn1000000Credits",
+          "Progress": 1000000
+        },
+        {
+          "Name": "Earn100000Credits",
+          "Progress": 100000
+        },
+        {
+          "Name": "Earn10000Credits",
+          "Progress": 10000
+        },
+        {
+          "Name": "Earn1000Credits",
+          "Progress": 1000
+        },
+        {
+          "Name": "EarnCreditsHidden",
+          "Progress": 1039136
+        },
+        {
+          "Name": "NoWitnesses",
+          "Progress": 100
+        },
+        {
+          "Name": "Play100Hours",
+          "Progress": 27513
+        },
+        {
+          "Name": "Play10Hours",
+          "Progress": 27513
+        },
+        {
+          "Name": "Play2Hours",
+          "Progress": 7200
+        },
+        {
+          "Name": "PlayHoursHidden",
+          "Progress": 27513
+        },
+        {
+          "Name": "Solve1000Ciphers",
+          "Progress": 34
+        },
+        {
+          "Name": "Solve100Ciphers",
+          "Progress": 34
+        },
+        {
+          "Name": "Solve10Ciphers",
+          "Progress": 10
+        },
+        {
+          "Name": "Solve1Cipher",
+          "Progress": 1
+        },
+        {
+          "Name": "SolveCipherUnder5Seconds",
+          "Progress": 1
+        },
+        {
+          "Name": "SolveCiphersHidden",
+          "Progress": 34
+        },
+        {
+          "Name": "WarframeRank2",
+          "Progress": 1
+        },
+        {
+          "Name": "WeaponRank2",
+          "Progress": 1
+        },
+        {
+          "Name": "Liberator",
+          "Progress": 1
+        },
+        {
+          "Name": "Parry1000Shots",
+          "Progress": 74
+        },
+        {
+          "Name": "PoleWeaponMastery1",
+          "Progress": 2
+        },
+        {
+          "Name": "PoleWeaponProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "RifleMastery1",
+          "Progress": 5
+        },
+        {
+          "Name": "RifleProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "ShurikenMastery1",
+          "Progress": 2
+        },
+        {
+          "Name": "ShurikenProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "TheCameraAdds100Pounds",
+          "Progress": 13
+        },
+        {
+          "Name": "Craft10Items",
+          "Progress": 10
+        },
+        {
+          "Name": "Craft1Item",
+          "Progress": 1
+        },
+        {
+          "Name": "Craft20Items",
+          "Progress": 20
+        },
+        {
+          "Name": "CraftItemsHidden",
+          "Progress": 27
+        },
+        {
+          "Name": "SHOOT_PROJECTILE",
+          "Progress": 9
+        },
+        {
+          "Name": "HatsOffToYou",
+          "Progress": 154
+        },
+        {
+          "Name": "SeasonWeeklyPermanentKillEnemies10",
+          "Progress": 500
+        },
+        {
+          "Name": "ApplyMod",
+          "Progress": 1
+        },
+        {
+          "Name": "SeasonDailySlideKills",
+          "Progress": 10
+        },
+        {
+          "Name": "SeasonWeeklyPermanentCompleteMissions10",
+          "Progress": 15
+        },
+        {
+          "Name": "JSDissolveFiveMods",
+          "Progress": 5
+        },
+        {
+          "Name": "FuseMods",
+          "Progress": 1
+        },
+        {
+          "Name": "EVCompleteQuest",
+          "Progress": 1
+        },
+        {
+          "Name": "ControlFreak",
+          "Progress": 1
+        },
+        {
+          "Name": "Find1000Mods",
+          "Progress": 591
+        },
+        {
+          "Name": "Find100Mods",
+          "Progress": 100
+        },
+        {
+          "Name": "Find1Mod",
+          "Progress": 1
+        },
+        {
+          "Name": "Find20Mods",
+          "Progress": 20
+        },
+        {
+          "Name": "FindModsHidden",
+          "Progress": 591
+        },
+        {
+          "Name": "PoleWeaponMastery2",
+          "Progress": 2
+        },
+        {
+          "Name": "PoleWeaponProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "RifleMastery2",
+          "Progress": 5
+        },
+        {
+          "Name": "RifleProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "SeasonWeeklyPermanentKillEximus10",
+          "Progress": 30
+        },
+        {
+          "Name": "ShurikenMastery2",
+          "Progress": 2
+        },
+        {
+          "Name": "ShurikenProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "SyndicateNLScarfChallenge",
+          "Progress": 1
+        },
+        {
+          "Name": "EVEquipDreamersBondMod",
+          "Progress": 1
+        },
+        {
+          "Name": "Kaboom",
+          "Progress": 10
+        },
+        {
+          "Name": "Revive1000Allies",
+          "Progress": 3
+        },
+        {
+          "Name": "Revive100Allies",
+          "Progress": 3
+        },
+        {
+          "Name": "Revive10Allies",
+          "Progress": 3
+        },
+        {
+          "Name": "Revive1Ally",
+          "Progress": 1
+        },
+        {
+          "Name": "ReviveAlliesHidden",
+          "Progress": 3
+        },
+        {
+          "Name": "TheSwordAlone",
+          "Progress": 1
+        },
+        {
+          "Name": "Apply4Mods",
+          "Progress": 1
+        },
+        {
+          "Name": "CustomizeWarframeColor",
+          "Progress": 1
+        },
+        {
+          "Name": "Kill100InMission",
+          "Progress": 1
+        },
+        {
+          "Name": "PoleWeaponMastery3",
+          "Progress": 2
+        },
+        {
+          "Name": "PoleWeaponProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "ShurikenMastery3",
+          "Progress": 2
+        },
+        {
+          "Name": "ShurikenProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "EMPurchaseWeapon",
+          "Progress": 1
+        },
+        {
+          "Name": "PistolMastery1",
+          "Progress": 3
+        },
+        {
+          "Name": "PistolProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "RifleMastery3",
+          "Progress": 5
+        },
+        {
+          "Name": "RifleProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "EVUpgradeDreamersBondMod",
+          "Progress": 1
+        },
+        {
+          "Name": "EVStartCraftingTaxon",
+          "Progress": 1
+        },
+        {
+          "Name": "VMPurchaseRhinoBlueprint",
+          "Progress": 1
+        },
+        {
+          "Name": "MR1TitleChallenge",
+          "Progress": 1
+        },
+        {
+          "Name": "PlayerRank1",
+          "Progress": 1
+        },
+        {
+          "Name": "Own1Sentinel",
+          "Progress": 1
+        },
+        {
+          "Name": "DJRandomizedWallClingKillstreak",
+          "Progress": 1
+        },
+        {
+          "Name": "OrbVallisExplorer",
+          "Progress": 1
+        },
+        {
+          "Name": "OrbVallisExplorer16",
+          "Progress": 1
+        },
+        {
+          "Name": "SentinelMastery1",
+          "Progress": 2
+        },
+        {
+          "Name": "SentinelProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "Hang10",
+          "Progress": 1
+        },
+        {
+          "Name": "KDriven",
+          "Progress": 236
+        },
+        {
+          "Name": "VMCompleteQuestVox",
+          "Progress": 1
+        },
+        {
+          "Name": "SaviourOfVenus",
+          "Progress": 1
+        },
+        {
+          "Name": "VMKillBossJackal",
+          "Progress": 1
+        },
+        {
+          "Name": "VMStartCraftingRhino",
+          "Progress": 1
+        },
+        {
+          "Name": "EMVisitSideQuest",
+          "Progress": 1
+        },
+        {
+          "Name": "SentinelMastery2",
+          "Progress": 2
+        },
+        {
+          "Name": "SentinelProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "PistolMastery2",
+          "Progress": 3
+        },
+        {
+          "Name": "PistolMastery3",
+          "Progress": 3
+        },
+        {
+          "Name": "PistolProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "PistolProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "SentinelMastery3",
+          "Progress": 2
+        },
+        {
+          "Name": "SentinelProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "JEVisitDojo",
+          "Progress": 1
+        },
+        {
+          "Name": "BrawlerMastery1",
+          "Progress": 1
+        },
+        {
+          "Name": "BrawlerMastery2",
+          "Progress": 1
+        },
+        {
+          "Name": "BrawlerMastery3",
+          "Progress": 1
+        },
+        {
+          "Name": "BrawlerProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "BrawlerProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "BrawlerProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "DarkSectors",
+          "Progress": 5
+        },
+        {
+          "Name": "EMBoltorOnly",
+          "Progress": 1
+        },
+        {
+          "Name": "EggTimer",
+          "Progress": 1
+        },
+        {
+          "Name": "TennoAndHooch",
+          "Progress": 10
+        },
+        {
+          "Name": "EMCompleteQuest",
+          "Progress": 1
+        },
+        {
+          "Name": "JSCompleteQuest",
+          "Progress": 1
+        },
+        {
+          "Name": "JSEquipCodexScanner",
+          "Progress": 1
+        },
+        {
+          "Name": "NPEquipArchwingLauncher",
+          "Progress": 1
+        },
+        {
+          "Name": "SaviourOfMars",
+          "Progress": 1
+        },
+        {
+          "Name": "HeavyWeaponMastery1",
+          "Progress": 1
+        },
+        {
+          "Name": "HeavyWeaponMastery2",
+          "Progress": 1
+        },
+        {
+          "Name": "HeavyWeaponMastery3",
+          "Progress": 1
+        },
+        {
+          "Name": "HeavyWeaponProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "HeavyWeaponProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "HeavyWeaponProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "Marathoner",
+          "Progress": 8
+        },
+        {
+          "Name": "RideTheWave",
+          "Progress": 1
+        },
+        {
+          "Name": "BowMastery1",
+          "Progress": 2
+        },
+        {
+          "Name": "BowMastery2",
+          "Progress": 2
+        },
+        {
+          "Name": "BowMastery3",
+          "Progress": 2
+        },
+        {
+          "Name": "BowProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "BowProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "BowProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "HiveFive",
+          "Progress": 2
+        },
+        {
+          "Name": "ShotgunMastery1",
+          "Progress": 2
+        },
+        {
+          "Name": "ShotgunMastery2",
+          "Progress": 2
+        },
+        {
+          "Name": "ShotgunMastery3",
+          "Progress": 2
+        },
+        {
+          "Name": "ShotgunProficiency1",
+          "Progress": 1
+        },
+        {
+          "Name": "ShotgunProficiency2",
+          "Progress": 1
+        },
+        {
+          "Name": "ShotgunProficiency3",
+          "Progress": 1
+        },
+        {
+          "Name": "PEFindOrokinVault",
+          "Progress": 1
+        },
+        {
+          "Name": "MPVisitMaroo",
+          "Progress": 1
+        },
+        {
+          "Name": "MCCompleteTreasureHunt",
+          "Progress": 1
+        },
+        {
+          "Name": "MCFillTreasure",
+          "Progress": 1
+        },
+        {
+          "Name": "MCTradeTreasure",
+          "Progress": 1
+        },
+        {
+          "Name": "IntoTheVoid",
+          "Progress": 4
+        },
+        {
+          "Name": "MPVoidTears",
+          "Progress": 3
+        },
+        {
+          "Name": "MCVoidProjectionUpgrade",
+          "Progress": 1
+        },
+        {
+          "Name": "SaviourOfUranus",
+          "Progress": 1
+        },
+        {
+          "Name": "UNKillBossTylRegor",
+          "Progress": 1
+        },
+        {
+          "Name": "DJPlayedParkourTutorial",
+          "Progress": 1
+        },
+        {
+          "Name": "DJUpgradeRedirectionToRankFive",
+          "Progress": 1
+        },
+        {
+          "Name": "PlayerRank2",
+          "Progress": 1
+        },
+        {
+          "Name": "Sell10000Credits",
+          "Progress": 10000
+        },
+        {
+          "Name": "SellItem",
+          "Progress": 1
+        },
+        {
+          "Name": "SellItemsHidden",
+          "Progress": 17500
+        },
+        {
+          "Name": "BladeMastery1",
+          "Progress": 1
+        },
+        {
+          "Name": "BladeProficiency1",
+          "Progress": 1
+        }
+      ],
+      "DeathMarks": ["/Lotus/Language/Bosses/BossTheJackal", "/Lotus/Language/Bosses/BossLieutenantLechKril"],
+      "Created": {
+        "$date": {
+          "$numberLong": "1791769788278"
+        }
+      },
+      "TitleType": "/Lotus/Types/Items/Titles/MoonfleshTitle",
+      "MigratedToConsole": false,
+      "Missions": [
+        {
+          "Completes": 2,
+          "Tag": "SolNode27"
+        },
+        {
+          "Completes": 4,
+          "Tag": "SolNode89"
+        },
+        {
+          "Completes": 2,
+          "Tag": "SolNode63"
+        },
+        {
+          "Completes": 2,
+          "Tag": "SolNode85"
+        },
+        {
+          "Completes": 2,
+          "Tag": "SolNode15"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode79"
+        },
+        {
+          "Completes": 1,
+          "Tag": "EventNode35"
+        },
+        {
+          "Completes": 1,
+          "Tag": "EarthToVenusJunction"
+        },
+        {
+          "Completes": 2,
+          "Tag": "SolNode128"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolarisUnitedHub1"
+        },
+        {
+          "Completes": 5,
+          "Tag": "SolNode129"
+        },
+        {
+          "Completes": 6,
+          "Tag": "SolNode104"
+        },
+        {
+          "Completes": 1,
+          "Tag": "VenusToMercuryJunction"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode26"
+        },
+        {
+          "Completes": 2,
+          "Tag": "SolNode22"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode66"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode103"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode28"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode130"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode59"
+        },
+        {
+          "Completes": 1,
+          "Tag": "EarthToMarsJunction"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode2"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode902"
+        },
+        {
+          "Completes": 3,
+          "Tag": "SolNode113"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode16"
+        },
+        {
+          "Completes": 8,
+          "Tag": "SolNode99"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode706"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode11"
+        },
+        {
+          "Completes": 1,
+          "Tag": "SolNode65"
+        },
+        {
+          "Completes": 1,
+          "Tag": "MarsToPhobosJunction"
+        }
+      ],
+      "Affiliations": [
+        {
+          "Tag": "RadioLegionIntermission16Syndicate",
+          "Standing": 14500,
+          "Title": 1
+        },
+        {
+          "Tag": "VentKidsSyndicate",
+          "Standing": 52,
+          "Title": 0
+        }
+      ],
+      "DailyAffiliation": 16500,
+      "DailyAffiliationPvp": 16500,
+      "DailyAffiliationLibrary": 16500,
+      "DailyAffiliationCetus": 16500,
+      "DailyAffiliationQuills": 16500,
+      "DailyAffiliationSolaris": 16500,
+      "DailyAffiliationVentkids": 16500,
+      "DailyAffiliationVox": 16500,
+      "DailyAffiliationEntrati": 16500,
+      "DailyAffiliationNecraloid": 16500,
+      "DailyAffiliationZariman": 16500,
+      "DailyAffiliationKahl": 16500,
+      "DailyAffiliationCavia": 16500,
+      "DailyAffiliationHex": 16500,
+      "DailyFocus": 255000,
+      "Wishlist": [
+        "/Lotus/Upgrades/Skins/Effects/DuelistEphemera",
+        "/Lotus/Upgrades/Skins/Effects/VoltDeluxeRaijinEphemera"
+      ],
+      "OperatorLoadOuts": [
+        {
+          "Skins": [
+            "/Lotus/Upgrades/Skins/Operator/Heads/HeadARemastered",
+            "/Lotus/Upgrades/Skins/Operator/Bodies/FemaleBody",
+            "/Lotus/Upgrades/Skins/Operator/Hair/NewHairA",
+            "",
+            "",
+            "/Lotus/Upgrades/Skins/Operator/Hoods/HoodA",
+            "/Lotus/Upgrades/Skins/Operator/BodySuits/BodySuitA",
+            "/Lotus/Upgrades/Skins/Operator/Sleeves/SleevesA",
+            "/Lotus/Upgrades/Skins/Operator/Leggings/LeggingsA",
+            "/Lotus/Upgrades/Skins/Voices/OperatorVoiceCItem",
+            "/Lotus/Upgrades/Skins/Operator/Skirts/NoSkirt",
+            "",
+            "",
+            "/Lotus/Upgrades/Skins/Operator/Heads/HeadARemastered",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "/Lotus/Upgrades/Skins/Operator/MakeupMasks/MakeupMaskNone"
+          ]
+        }
+      ]
+    }
+  ],
+  "TechProjects": [],
+  "XpComponents": [],
+  "XpCacheExpiryDate": {
+    "$date": {
+      "$numberLong": "1792340642000"
+    }
+  },
+  "Stats": {
+    "Tutorial": {
+      "1": {
+        "stage": 1
+      },
+      "2": {
+        "stage": 1
+      },
+      "3": {
+        "stage": 1
+      },
+      "4": {
+        "stage": 1
+      },
+      "5": {
+        "stage": 1
+      },
+      "6": {
+        "stage": 1
+      },
+      "7": {
+        "stage": 1
+      },
+      "8": {
+        "stage": 1
+      }
+    },
+    "Weapons": [
+      {
+        "equipTime": 356.65057,
+        "type": "/Lotus/Powersuits/Excalibur/Excalibur"
+      },
+      {
+        "equipTime": 29010.9728311,
+        "kills": 2064,
+        "xp": 11907541,
+        "assists": 1501,
+        "type": "/Lotus/Powersuits/Volt/Volt"
+      },
+      {
+        "equipTime": 16210.642772,
+        "kills": 103,
+        "fired": 685,
+        "headshots": 31,
+        "xp": 4342204,
+        "assists": 15,
+        "type": "/Lotus/Weapons/Tenno/Melee/Staff/Staff"
+      },
+      {
+        "equipTime": 1095.2933418,
+        "kills": 8,
+        "fired": 32,
+        "headshots": 3,
+        "hits": 12,
+        "xp": 458697,
+        "type": "/Lotus/Weapons/Tenno/ThrowingWeapons/Kunai"
+      },
+      {
+        "equipTime": 502.8756764,
+        "kills": 12,
+        "fired": 29,
+        "headshots": 5,
+        "hits": 13,
+        "xp": 810680,
+        "type": "/Lotus/Weapons/Tenno/Bows/HuntingBow"
+      },
+      {
+        "equipTime": 9710.520337,
+        "xp": 450000,
+        "type": "/Lotus/Weapons/Tenno/HackingDevices/TnHackingDevice/TnHackingDeviceWeapon"
+      },
+      {
+        "equipTime": 3192.657675,
+        "kills": 40,
+        "fired": 683,
+        "headshots": 10,
+        "hits": 366,
+        "xp": 1094460,
+        "assists": 5,
+        "type": "/Lotus/Weapons/Tenno/Rifle/Rifle"
+      },
+      {
+        "equipTime": 2609.697706,
+        "kills": 94,
+        "fired": 2691,
+        "headshots": 44,
+        "hits": 1692,
+        "xp": 476966,
+        "assists": 10,
+        "type": "/Lotus/Weapons/Tenno/LongGuns/TnModQuestRifle/TnModQuestRifleWeapon"
+      },
+      {
+        "equipTime": 679.479197,
+        "kills": 3,
+        "fired": 95,
+        "headshots": 1,
+        "type": "/Lotus/Weapons/Corpus/Melee/KickAndPunch/BareKnucklesWeapon"
+      },
+      {
+        "equipTime": 4906.21471,
+        "kills": 7,
+        "fired": 88,
+        "headshots": 1,
+        "xp": 489785,
+        "assists": 2,
+        "type": "/Lotus/Weapons/MK1Series/MK1Bo"
+      },
+      {
+        "equipTime": 2015.776227,
+        "kills": 1,
+        "fired": 59,
+        "hits": 28,
+        "xp": 475385,
+        "assists": 6,
+        "type": "/Lotus/Weapons/MK1Series/MK1Furis"
+      },
+      {
+        "equipTime": 13116.508434,
+        "kills": 11,
+        "xp": 13545693,
+        "assists": 80,
+        "type": "/Lotus/Types/Sentinels/SentinelPowersuits/TnSentinelCrossPowerSuit"
+      },
+      {
+        "equipTime": 13044.878886,
+        "kills": 195,
+        "headshots": 22,
+        "xp": 11257908,
+        "assists": 1348,
+        "type": "/Lotus/Types/Sentinels/SentinelWeapons/Gremlin"
+      },
+      {
+        "equipTime": 9168.142383999999,
+        "kills": 532,
+        "headshots": 179,
+        "xp": 1818282,
+        "assists": 63,
+        "type": "/Lotus/Weapons/Corpus/LongGuns/CrpFreezeRay/CrpFreezeRayRifle"
+      },
+      {
+        "equipTime": 2112.0253119999998,
+        "fired": 49,
+        "xp": 996024,
+        "assists": 7,
+        "type": "/Lotus/Weapons/MK1Series/MK1Furax"
+      },
+      {
+        "equipTime": 5902.888534000001,
+        "kills": 16,
+        "fired": 312,
+        "headshots": 6,
+        "hits": 155,
+        "xp": 4172190,
+        "assists": 3,
+        "type": "/Lotus/Weapons/Tenno/Pistol/AutoPistol"
+      },
+      {
+        "equipTime": 3156.9649219999997,
+        "kills": 25,
+        "fired": 836,
+        "headshots": 8,
+        "hits": 356,
+        "xp": 1714062,
+        "assists": 38,
+        "type": "/Lotus/Weapons/Tenno/Rifle/BoltoRifle"
+      },
+      {
+        "equipTime": 11118.480106099998,
+        "kills": 4,
+        "xp": 8166872,
+        "assists": 16,
+        "type": "/Lotus/Types/Game/KubrowPet/GuardKubrowPetPowerSuit"
+      },
+      {
+        "equipTime": 1249.7776480000002,
+        "kills": 1,
+        "fired": 37,
+        "hits": 27,
+        "xp": 845602,
+        "type": "/Lotus/Weapons/Tenno/Pistol/Pistol"
+      },
+      {
+        "equipTime": 1830.5546367999998,
+        "kills": 2,
+        "fired": 139,
+        "headshots": 1,
+        "hits": 83,
+        "xp": 6560327,
+        "assists": 6,
+        "type": "/Lotus/Weapons/Tenno/Rifle/StartingRifle"
+      },
+      {
+        "equipTime": 5656.251048699999,
+        "kills": 264,
+        "fired": 3886,
+        "headshots": 53,
+        "hits": 2655,
+        "xp": 1945051,
+        "assists": 23,
+        "type": "/Lotus/Weapons/Tenno/LongGuns/TnRifleErsatz/TnRifleErsatzWeapon"
+      },
+      {
+        "equipTime": 219.185463,
+        "xp": 14954,
+        "type": "/Lotus/Powersuits/Archwing/StandardJetPack/StandardJetPack"
+      },
+      {
+        "equipTime": 214.653458,
+        "xp": 4635,
+        "type": "/Lotus/Weapons/Tenno/Archwing/Melee/Archsword/ArchSwordWeapon"
+      },
+      {
+        "equipTime": 214.65318900000003,
+        "kills": 4,
+        "fired": 475,
+        "hits": 315,
+        "xp": 16497,
+        "type": "/Lotus/Weapons/Tenno/Archwing/Primary/FoldingMachineGun/ArchMachineGun"
+      },
+      {
+        "equipTime": 598.5418494000002,
+        "type": "/Lotus/Weapons/Tenno/Pistol/ScannerPistol"
+      },
+      {
+        "equipTime": 864.847014,
+        "fired": 4,
+        "xp": 452151,
+        "type": "/Lotus/Weapons/Tenno/Melee/Hammer/HammerWeapon"
+      },
+      {
+        "equipTime": 629.092826,
+        "kills": 1,
+        "fired": 8,
+        "hits": 7,
+        "xp": 1553391,
+        "assists": 1,
+        "type": "/Lotus/Weapons/MK1Series/MK1Paris"
+      },
+      {
+        "equipTime": 386.92755300000005,
+        "fired": 11,
+        "hits": 5,
+        "xp": 1298786,
+        "type": "/Lotus/Weapons/Tenno/Shotgun/Shotgun"
+      },
+      {
+        "equipTime": 288.26223699999997,
+        "fired": 30,
+        "hits": 6,
+        "xp": 744917,
+        "assists": 4,
+        "type": "/Lotus/Weapons/MK1Series/MK1Strun"
+      },
+      {
+        "equipTime": 940.5957191000001,
+        "fired": 9,
+        "xp": 55790,
+        "type": "/Lotus/Weapons/Tenno/Melee/LongSword/LongSword"
+      },
+      {
+        "equipTime": 857.434845,
+        "kills": 51,
+        "fired": 282,
+        "headshots": 22,
+        "hits": 119,
+        "xp": 81597,
+        "assists": 3,
+        "type": "/Lotus/Weapons/Tenno/Rifle/BurstRifle"
+      },
+      {
+        "equipTime": 339.50319,
+        "kills": 7,
+        "xp": 41828,
+        "assists": 8,
+        "type": "/Lotus/Powersuits/Rhino/Rhino"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Weapons/Tenno/HackingDevices/MarineHackFinisherBackC"
+      },
+      {
+        "kills": 57,
+        "assists": 326,
+        "type": "/Lotus/Types/Player/TennoClimbController"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Weapons/Tenno/HackingDevices/BipedHackFinisher"
+      },
+      {
+        "kills": 3,
+        "type": "/Lotus/Types/Enemies/Corpus/QuadRobot/QuadRobotDataKnifeAction"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Weapons/Grineer/LineGrenadeLauncher"
+      },
+      {
+        "kills": 5,
+        "type": "/Lotus/Weapons/Tenno/HackingDevices/AncientHackFinisherB"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Weapons/Tenno/HackingDevices/CrawlerHackFinisher"
+      },
+      {
+        "kills": 152,
+        "headshots": 6,
+        "xp": 6869466,
+        "assists": 214,
+        "type": "/Lotus/Types/Friendly/Pets/BeastWeapons/RaksaPetWeapon"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Weapons/Tenno/HackingDevices/AncientHackFinisher"
+      },
+      {
+        "kills": 25,
+        "assists": 4,
+        "type": "/Lotus/Objects/ExplodingBarrel"
+      },
+      {
+        "kills": 3,
+        "assists": 1,
+        "type": "/Lotus/Types/Gameplay/Grineer/BrokenLight"
+      },
+      {
+        "kills": 4,
+        "type": "/Lotus/Objects/GrnExplodingBarrel"
+      },
+      {
+        "xp": 533657,
+        "type": "/Lotus/Weapons/MK1Series/MK1Kunai"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Objects/OrokinExplodingBarrel"
+      }
+    ],
+    "TimePlayedSec": 28878.0288918,
+    "Enemies": [
+      {
+        "kills": 26,
+        "executions": 1,
+        "headshots": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/BladeSawmanAvatarTutorial"
+      },
+      {
+        "kills": 5,
+        "type": "/Lotus/Types/Enemies/Grineer/GrineerAvatars/TutoralMarinerIntroAvatar"
+      },
+      {
+        "kills": 21,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/BladeSawmanAvatar"
+      },
+      {
+        "kills": 20,
+        "headshots": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/GrineerAvatars/TutoralMarinerAvatar"
+      },
+      {
+        "kills": 44,
+        "executions": 1,
+        "headshots": 4,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/RifleLancerTutorialAvatar"
+      },
+      {
+        "kills": 4,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/ShieldLancerAvatarTutorial"
+      },
+      {
+        "kills": 7,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/FemaleGrineerTutorialAvatar"
+      },
+      {
+        "kills": 25,
+        "headshots": 12,
+        "assists": 1,
+        "type": "/Lotus/Types/NeutralCreatures/Kubrow/KubrowAvatar"
+      },
+      {
+        "kills": 31,
+        "headshots": 6,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/ShotgunLancerAvatar"
+      },
+      {
+        "kills": 323,
+        "headshots": 13,
+        "assists": 551,
+        "deaths": 1,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Quadrupeds/QuadrupedAvatar"
+      },
+      {
+        "kills": 54,
+        "executions": 1,
+        "headshots": 4,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/RifleLancerAvatar"
+      },
+      {
+        "kills": 11,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/ShotgunLancerAvatar"
+      },
+      {
+        "kills": 32,
+        "headshots": 6,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/Drones/AIWeek/ShieldDroneAvatar"
+      },
+      {
+        "kills": 159,
+        "headshots": 28,
+        "assists": 41,
+        "type": "/Lotus/Types/Enemies/Corpus/Spaceman/AIWeek/RifleSpacemanAvatar"
+      },
+      {
+        "kills": 13,
+        "type": "/Lotus/Types/Enemies/Corpus/Turrets/TurretAvatars/SecurityCameraNarrowAvatar"
+      },
+      {
+        "kills": 13,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/ShieldLancerAvatar"
+      },
+      {
+        "kills": 4,
+        "type": "/Lotus/Types/Enemies/Grineer/GrineerAvatars/GrineerMarinePistolAvatar"
+      },
+      {
+        "kills": 1,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/Vip/VorRework/CaptainVorBossReworkAvatar"
+      },
+      {
+        "kills": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Vip/VorRework/VorArenaTurret/VorArenaTurretAvatar"
+      },
+      {
+        "kills": 86,
+        "headshots": 14,
+        "assists": 26,
+        "type": "/Lotus/Types/Enemies/Corpus/BipedRobot/AIWeek/LaserCannonBipedAvatar"
+      },
+      {
+        "kills": 34,
+        "headshots": 8,
+        "assists": 14,
+        "type": "/Lotus/Types/Enemies/Corpus/BipedRobot/AIWeek/ShockwaveBipedAvatar"
+      },
+      {
+        "kills": 62,
+        "headshots": 13,
+        "assists": 16,
+        "type": "/Lotus/Types/Enemies/Corpus/Spaceman/AIWeek/MeleeSpacemanAvatar"
+      },
+      {
+        "kills": 3,
+        "type": "/Lotus/Types/Gameplay/ModQuest/Npc/TeshinTestTargetAvatarElectricity"
+      },
+      {
+        "kills": 3,
+        "type": "/Lotus/Types/Gameplay/ModQuest/Npc/TeshinTestTargetAvatarMagnetic"
+      },
+      {
+        "kills": 3,
+        "headshots": 3,
+        "type": "/Lotus/Types/Enemies/Corpus/Gamemodes/DeployableSpacemanWardenAvatar"
+      },
+      {
+        "kills": 2,
+        "type": "/Lotus/Types/Gameplay/ModQuest/Npc/TeshinShieldDroneAvatar"
+      },
+      {
+        "kills": 56,
+        "headshots": 4,
+        "assists": 5,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/BladeSawmanAvatar"
+      },
+      {
+        "kills": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/EvisceratorLancerAvatar"
+      },
+      {
+        "kills": 15,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/JetpackMarineAvatar"
+      },
+      {
+        "kills": 213,
+        "headshots": 22,
+        "assists": 32,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/RifleLancerAvatar"
+      },
+      {
+        "kills": 2,
+        "executions": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/RifleLancerAvatarLeader"
+      },
+      {
+        "kills": 47,
+        "headshots": 8,
+        "assists": 11,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/ShotgunLancerAvatar"
+      },
+      {
+        "kills": 4,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/HeavyFemaleGrineerAvatarDesert"
+      },
+      {
+        "kills": 6,
+        "assists": 7,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/EliteRifleLancerAvatar"
+      },
+      {
+        "kills": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/HeavyFemaleGrineerAvatar"
+      },
+      {
+        "kills": 18,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/StickyRollingDroneAvatar"
+      },
+      {
+        "kills": 16,
+        "executions": 3,
+        "headshots": 5,
+        "assists": 335,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/AncientAvatar"
+      },
+      {
+        "kills": 26,
+        "headshots": 4,
+        "assists": 17,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/CrawlerAvatar"
+      },
+      {
+        "kills": 138,
+        "headshots": 9,
+        "assists": 167,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Runners/LeapingRunnerAvatar"
+      },
+      {
+        "kills": 163,
+        "headshots": 14,
+        "assists": 211,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Runners/RunnerAvatar"
+      },
+      {
+        "kills": 84,
+        "headshots": 2,
+        "assists": 101,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Runners/SuicideRunnerAvatar"
+      },
+      {
+        "kills": 2,
+        "headshots": 1,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/Amalgams/Avatars/AmalgamCarrusAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Amalgams/Avatars/AmalgamCorpusOverrideAvatar"
+      },
+      {
+        "kills": 4,
+        "headshots": 2,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Amalgams/Avatars/AmalgamMoaAvatar"
+      },
+      {
+        "kills": 1,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Amalgams/Avatars/AmalgamMoaSatyrAvatar"
+      },
+      {
+        "kills": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasDeployableSpacemanAvatar"
+      },
+      {
+        "kills": 40,
+        "headshots": 8,
+        "assists": 16,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasEliteSpacemanAvatar"
+      },
+      {
+        "kills": 1,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasEliteSpacemanAvatarLeader"
+      },
+      {
+        "kills": 21,
+        "headshots": 3,
+        "assists": 6,
+        "deaths": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasLaserCannonBipedAvatar"
+      },
+      {
+        "kills": 4,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasLaserDiscBipedAvatar"
+      },
+      {
+        "kills": 3,
+        "headshots": 2,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasNullifySpacemanAvatar"
+      },
+      {
+        "kills": 4,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasRailgunBipedAvatar"
+      },
+      {
+        "kills": 1,
+        "executions": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasRailgunBipedAvatarLeader"
+      },
+      {
+        "kills": 9,
+        "headshots": 1,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasShieldDroneAvatar"
+      },
+      {
+        "kills": 22,
+        "headshots": 2,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasShockwaveBipedAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasShockwaveBipedAvatarLeader"
+      },
+      {
+        "kills": 29,
+        "headshots": 4,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasShotgunSpacemanAvatar"
+      },
+      {
+        "kills": 1,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasSniperSpacemanAvatar"
+      },
+      {
+        "kills": 10,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasSuperMoaBipedAvatar"
+      },
+      {
+        "kills": 3,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/QuadRobot/MicroHyenaAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/TennoReplicants/JunctionRework/VoltJunctionBossAvatar"
+      },
+      {
+        "kills": 4,
+        "assists": 9,
+        "type": "/Lotus/Types/Enemies/Corpus/BipedRobot/AIWeek/LaserCannonBipedAvatarLeader"
+      },
+      {
+        "kills": 9,
+        "headshots": 4,
+        "assists": 9,
+        "type": "/Lotus/Types/Enemies/Corpus/Drones/AIWeek/SuicideDroneAvatar"
+      },
+      {
+        "kills": 3,
+        "headshots": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Spaceman/AIWeek/RifleSpacemanAvatarLeader"
+      },
+      {
+        "kills": 72,
+        "headshots": 23,
+        "assists": 13,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusDroneAttackAvatar"
+      },
+      {
+        "kills": 115,
+        "headshots": 22,
+        "assists": 33,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusEliteSpacemanAvatar"
+      },
+      {
+        "kills": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusEliteSpacemanAvatarLeader"
+      },
+      {
+        "kills": 105,
+        "headshots": 19,
+        "assists": 28,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusLaserCannonBipedAvatar"
+      },
+      {
+        "kills": 52,
+        "headshots": 10,
+        "assists": 19,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusShotgunSpacemanAvatar"
+      },
+      {
+        "kills": 4,
+        "headshots": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusLaserCannonBipedAvatarLeader"
+      },
+      {
+        "kills": 30,
+        "headshots": 7,
+        "assists": 5,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusShockwaveBipedAvatar"
+      },
+      {
+        "kills": 3,
+        "headshots": 2,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Heavies/VenusGrenadierSpacemanAvatar"
+      },
+      {
+        "kills": 6,
+        "headshots": 4,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Heavies/VenusGuardSpacemanAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Heavies/VenusGuardTurretAvatar"
+      },
+      {
+        "kills": 6,
+        "headshots": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusCarrierSpacemanAvatar"
+      },
+      {
+        "kills": 3,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusShieldDroneAvatar"
+      },
+      {
+        "kills": 2,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusShieldDroneAvatarLeader"
+      },
+      {
+        "kills": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusShockwaveBipedAvatarLeader"
+      },
+      {
+        "kills": 3,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Heavies/VenusFlyingSpacemanAvatar"
+      },
+      {
+        "kills": 4,
+        "headshots": 2,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Heavies/VenusHeavyMeleeSpacemanAvatar"
+      },
+      {
+        "kills": 3,
+        "type": "/Lotus/Types/Enemies/Corpus/Vip/Arachnoid/ArachnoidMicroAvatar"
+      },
+      {
+        "kills": 1,
+        "headshots": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusShotgunSpacemanAvatarLeader"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Venus/Avatars/VenusSniperSpacemanAvatar"
+      },
+      {
+        "kills": 10,
+        "headshots": 1,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Corpus/BipedRobot/AIWeek/GuidedDummyBipedAvatar"
+      },
+      {
+        "kills": 89,
+        "assists": 24,
+        "type": "/Lotus/Types/Enemies/Corpus/CorpusShipRemastered/Avatars/ShipCrewmanAvatar"
+      },
+      {
+        "kills": 55,
+        "headshots": 1,
+        "assists": 15,
+        "type": "/Lotus/Types/Enemies/Corpus/CorpusShipRemastered/Avatars/ShipMoaDeraAvatar"
+      },
+      {
+        "kills": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/CorpusShipRemastered/Avatars/ShipMoaDeraAvatarLeader"
+      },
+      {
+        "kills": 26,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Corpus/CorpusShipRemastered/Avatars/ShipMoaDiscAvatar"
+      },
+      {
+        "kills": 2,
+        "headshots": 2,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Corpus/CorpusShipRemastered/Avatars/ShipOspreyOxiumAvatar"
+      },
+      {
+        "kills": 4,
+        "type": "/Lotus/Types/Enemies/Corpus/CorpusShipRemastered/Avatars/ShipOspreyShieldAvatar"
+      },
+      {
+        "kills": 3,
+        "executions": 3,
+        "assists": 9,
+        "type": "/Lotus/Types/Enemies/Corpus/QuadRobot/QuadRobotAvatarNEW"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/TennoReplicants/RelayBoss/TennoReplicantRhinoAvatar"
+      },
+      {
+        "kills": 3,
+        "assists": 2,
+        "deaths": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/CorpusShipRemastered/Avatars/ShipMachinistHammerAvatar"
+      },
+      {
+        "kills": 13,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Turrets/TurretAvatars/AutoTurretAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/FemaleGrineerAvatarLeader"
+      },
+      {
+        "kills": 2,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/RocketBombardAvatar"
+      },
+      {
+        "kills": 38,
+        "headshots": 1,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/BladeSawmanAvatar"
+      },
+      {
+        "kills": 4,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/EvisceratorLancerAvatar"
+      },
+      {
+        "kills": 8,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/GrineerMarinePistolAvatar"
+      },
+      {
+        "kills": 143,
+        "headshots": 27,
+        "assists": 29,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/RifleLancerAvatar"
+      },
+      {
+        "kills": 3,
+        "headshots": 1,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/RifleLancerAvatarLeader"
+      },
+      {
+        "kills": 3,
+        "headshots": 1,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/ShotgunLancerAvatarLeader"
+      },
+      {
+        "kills": 22,
+        "headshots": 2,
+        "assists": 9,
+        "type": "/Lotus/Types/Enemies/Orokin/OrokinBladeSawmanAvatar"
+      },
+      {
+        "kills": 6,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Orokin/OrokinMoaBipedAvatar"
+      },
+      {
+        "kills": 2,
+        "headshots": 1,
+        "assists": 66,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/HealingAncientAvatarLeader"
+      },
+      {
+        "kills": 7,
+        "executions": 1,
+        "headshots": 2,
+        "assists": 108,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/ProtectorAncientAvatar"
+      },
+      {
+        "kills": 1,
+        "executions": 1,
+        "assists": 36,
+        "deaths": 1,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/ToxicAncientAvatarLeader"
+      },
+      {
+        "kills": 8,
+        "assists": 13,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/GrenadeAvatar"
+      },
+      {
+        "kills": 1,
+        "executions": 1,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/GrenadeAvatarLeader"
+      },
+      {
+        "kills": 12,
+        "headshots": 1,
+        "assists": 14,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/LightningAvatar"
+      },
+      {
+        "kills": 11,
+        "headshots": 1,
+        "assists": 89,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/InfestedMoas/NaniteCloudBipedAvatar"
+      },
+      {
+        "kills": 15,
+        "assists": 107,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/InfestedMoas/SlowBombBipedAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/BipedRobot/AIWeek/ShockwaveBipedAvatarLeader"
+      },
+      {
+        "kills": 36,
+        "headshots": 4,
+        "assists": 14,
+        "type": "/Lotus/Types/Enemies/Corpus/Spaceman/AIWeek/ShotgunSpacemanAvatar"
+      },
+      {
+        "kills": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/Spaceman/AIWeek/ShotgunSpacemanAvatarLeader"
+      },
+      {
+        "kills": 12,
+        "assists": 18,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/NoxiousCrawlerAvatar"
+      },
+      {
+        "kills": 335,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Quadrupeds/RusherAvatar"
+      },
+      {
+        "kills": 22,
+        "headshots": 5,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Corpus/BipedRobot/AIWeek/RailgunBipedAvatar"
+      },
+      {
+        "kills": 21,
+        "headshots": 2,
+        "assists": 7,
+        "type": "/Lotus/Types/Enemies/Corpus/BipedRobot/AIWeek/SuperMoaBipedAvatar"
+      },
+      {
+        "kills": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Spaceman/AIWeek/MeleeSpacemanAvatarLeader"
+      },
+      {
+        "kills": 3,
+        "headshots": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/GrineerChargerAvatar"
+      },
+      {
+        "kills": 4,
+        "headshots": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/MacheteWomanAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/HeavyFemaleGrineerAvatarDesert"
+      },
+      {
+        "kills": 1,
+        "headshots": 1,
+        "assists": 8,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/CrawlerAvatarLeader"
+      },
+      {
+        "kills": 7,
+        "headshots": 1,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/GraspingCrawlerAvatar"
+      },
+      {
+        "kills": 7,
+        "headshots": 1,
+        "assists": 279,
+        "deaths": 11,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Quadrupeds/QuadrupedAvatarLeader"
+      },
+      {
+        "kills": 2,
+        "assists": 96,
+        "deaths": 2,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Runners/LeapingRunnerAvatarLeader"
+      },
+      {
+        "kills": 10,
+        "headshots": 3,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/FemaleGrineerAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/TennoReplicants/RelayBoss/TennoReplicantLokiAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Drones/AIWeek/LeechDroneAvatar"
+      },
+      {
+        "kills": 2,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Drones/AIWeek/MineDroneAvatar"
+      },
+      {
+        "kills": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/QuadRobot/MiniBoss/QuadRobotMiniBossAvatar"
+      },
+      {
+        "kills": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/QuadRobot/MiniBoss/ShieldDroneMiniBossAvatar"
+      },
+      {
+        "kills": 2,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Spaceman/AIWeek/NullifySpacemanAvatar"
+      },
+      {
+        "kills": 2,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Corpus/Turrets/TurretAvatars/AutoTurretHeavyAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Orokin/OrokinBladeSawmanAvatarLeader"
+      },
+      {
+        "kills": 5,
+        "headshots": 1,
+        "assists": 9,
+        "type": "/Lotus/Types/Enemies/Orokin/OrokinHealingAncientAvatar"
+      },
+      {
+        "kills": 6,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Orokin/OrokinHeavyFemaleAvatar"
+      },
+      {
+        "kills": 8,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Orokin/OrokinShieldDroneAvatar"
+      },
+      {
+        "kills": 19,
+        "assists": 14,
+        "type": "/Lotus/Types/Enemies/Orokin/RifleLancerAvatar"
+      },
+      {
+        "kills": 28,
+        "assists": 19,
+        "type": "/Lotus/Types/Enemies/Orokin/RifleSpacemanAvatar"
+      },
+      {
+        "kills": 8,
+        "headshots": 2,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Spaceman/AIWeek/CarrierSpacemanAvatar"
+      },
+      {
+        "kills": 8,
+        "headshots": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/CarrierRifleLancerAvatar"
+      },
+      {
+        "kills": 9,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/InfestedDrones/CellCarrierDroneAvatar"
+      },
+      {
+        "kills": 4,
+        "type": "/Lotus/Types/Enemies/SpaceBattles/Grineer/GrineerMissilePlatAvatar"
+      },
+      {
+        "kills": 7,
+        "headshots": 1,
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/GrineerMarinePistolAvatar"
+      },
+      {
+        "kills": 10,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/JetpackMarineCarrierAvatar"
+      },
+      {
+        "kills": 4,
+        "assists": 10,
+        "type": "/Lotus/Types/Enemies/Grineer/Vip/Avatars/BossLechKrilAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/NeutralCreatures/CreatureAvatars/SandRayAvatar"
+      },
+      {
+        "kills": 4,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/CatMasterAvatar"
+      },
+      {
+        "kills": 14,
+        "headshots": 1,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/CombatCatbrowAvatar"
+      },
+      {
+        "kills": 2,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/BladeSawmanAvatarLeader"
+      },
+      {
+        "kills": 26,
+        "assists": 59,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/DiseasedAncientAvatar"
+      },
+      {
+        "kills": 25,
+        "assists": 186,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/HealingAncientAvatar"
+      },
+      {
+        "kills": 13,
+        "assists": 81,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/SpawningAncientAvatar"
+      },
+      {
+        "kills": 2,
+        "executions": 1,
+        "assists": 20,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/ProtectorAncientAvatarLeader"
+      },
+      {
+        "kills": 28,
+        "assists": 65,
+        "deaths": 1,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/InfestedDrones/PoisonDroneAvatar"
+      },
+      {
+        "kills": 16,
+        "assists": 188,
+        "deaths": 2,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/ToxicAncientAvatar"
+      },
+      {
+        "kills": 1,
+        "assists": 23,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/DiseasedAncientAvatarLeader"
+      },
+      {
+        "kills": 17,
+        "assists": 5,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/RifleLancerAvatar"
+      },
+      {
+        "kills": 11,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/BladeSawmanAvatar"
+      },
+      {
+        "kills": 4,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/FemaleGrineerHeavyAvatar"
+      },
+      {
+        "kills": 8,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/FemaleGrineerSniperAvatar"
+      },
+      {
+        "kills": 4,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/GrineerMarinePistolAvatar"
+      },
+      {
+        "kills": 14,
+        "headshots": 1,
+        "assists": 12,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/ShotgunLancerAvatar"
+      },
+      {
+        "kills": 1,
+        "type": "/Lotus/Types/Enemies/Orokin/OrokinMoaBipedLeaderAvatar"
+      },
+      {
+        "kills": 12,
+        "assists": 13,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/EliteRifleLancerAvatar"
+      },
+      {
+        "kills": 2,
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/FemaleGrineerMacheteAvatar"
+      },
+      {
+        "kills": 11,
+        "headshots": 4,
+        "type": "/Lotus/Types/Enemies/Grineer/GrineerAvatars/GrineerMarineMeleeAvatar"
+      },
+      {
+        "kills": 1,
+        "assists": 50,
+        "deaths": 1,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/AncientAvatarLeader"
+      },
+      {
+        "kills": 1,
+        "assists": 42,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/InfestedMoas/NaniteCloudBipedAvatarLeader"
+      },
+      {
+        "kills": 11,
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/RollingDroneAvatar"
+      },
+      {
+        "kills": 9,
+        "headshots": 4,
+        "assists": 26,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/SeaLabManicGrineerAvatar"
+      },
+      {
+        "kills": 2,
+        "headshots": 1,
+        "assists": 3,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/FlameLancerAvatar"
+      },
+      {
+        "kills": 1,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/Avatars/GrineerMarinePistolAvatarLeader"
+      },
+      {
+        "kills": 1,
+        "headshots": 1,
+        "type": "/Lotus/Types/Enemies/TennoReplicants/RelayBoss/TennoReplicantMagAvatar"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/Desert/HeavyFemaleGrineerAvatarDesertLeader"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/CombatKubrowAvatar"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/IncendiaryBombardAvatar"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/ChemStrike/ChemStrikeNoxAvatar"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Amalgams/Avatars/AmalgamMoaBossAvatar"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Amalgams/Avatars/AmalgamMoaSatyrBossAvatar"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/GasCity/Avatars/GasSuicideDroneAvatar"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Corpus/Amalgams/Avatars/AmalgamCorpusSniperAvatar"
+      },
+      {
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/FlameLancerAvatarLeader"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/RocketBombardAvatarLeader"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/AIWeek/Avatars/ShieldLancerAvatarLeader"
+      },
+      {
+        "assists": 4,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/BladeSawmanAvatarLeader"
+      },
+      {
+        "assists": 2,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/Avatars/EvisceratorLancerAvatarLeader"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/Forest/HeavyFemaleGrineerAvatarDesertLeader"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Orokin/OrokinAutoTurretAvatar"
+      },
+      {
+        "assists": 5,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/LightningAvatarLeader"
+      },
+      {
+        "assists": 6,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Crawlers/NoxiousCrawlerAvatarLeader"
+      },
+      {
+        "assists": 40,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/InfestedMoas/SlowBombBipedAvatarLeader"
+      },
+      {
+        "assists": 28,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Ancients/SpawningAncientAvatarLeader"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Infested/AiWeek/Quadrupeds/JuggernautAvatar"
+      },
+      {
+        "assists": 2,
+        "type": "/Lotus/Types/Friendly/Agents/HiveMode/InfestedHiveAvatarB"
+      },
+      {
+        "assists": 2,
+        "type": "/Lotus/Types/Friendly/Agents/HiveMode/InfestedHiveAvatarC"
+      },
+      {
+        "assists": 6,
+        "type": "/Lotus/Types/Enemies/Grineer/SeaLab/Avatars/SeaLabManicBombardAvatar"
+      },
+      {
+        "assists": 12,
+        "type": "/Lotus/Types/Enemies/Grineer/Vip/TylRegor/TylRegorAvatar"
+      },
+      {
+        "assists": 1,
+        "type": "/Lotus/Types/Enemies/Grineer/SpecialEvents/SurveillanceDroneAvatar"
+      }
+    ],
+    "Abilities": [
+      {
+        "used": 492,
+        "type": "/Lotus/Powersuits/Volt/Abilities/ShockAbility"
+      },
+      {
+        "used": 229,
+        "type": "/Lotus/Powersuits/Volt/Abilities/SpeedAbility"
+      },
+      {
+        "used": 15,
+        "type": "/Lotus/Powersuits/Volt/Abilities/ShieldAbility"
+      },
+      {
+        "used": 223,
+        "type": "/Lotus/Powersuits/Volt/Abilities/OverLoadAbility"
+      },
+      {
+        "used": 47,
+        "type": "/Lotus/Powersuits/Rhino/Abilities/RhinoChargeAbility"
+      }
+    ],
+    "MeleeKills": 296,
+    "DestroyCount": 2576,
+    "PickupCount": 10090,
+    "CiphersSolved": 34,
+    "CipherTime": 111.4412047,
+    "MissionsCompleted": 88,
+    "MissionsQuit": 1,
+    "Rating": 0,
+    "Income": 1039136,
+    "Rank": 5,
+    "ReviveCount": 3,
+    "Deaths": 5,
+    "PlayerLevel": 2,
+    "HealCount": 93,
+    "Missions": [
+      {
+        "highScore": 1243956,
+        "type": "SolNode26"
+      },
+      {
+        "highScore": 1879,
+        "type": "ClanNode13"
+      },
+      {
+        "highScore": 654935,
+        "type": "SolNode22"
+      },
+      {
+        "highScore": 2367,
+        "type": "ClanNode19"
+      },
+      {
+        "highScore": 349,
+        "type": "/Lotus/Types/Keys/KubrowQuest/MissionOne"
+      },
+      {
+        "highScore": 100,
+        "type": "/Lotus/Types/Keys/ArchwingQuest/MissionTwo"
+      },
+      {
+        "highScore": 100,
+        "type": "/Lotus/Types/Keys/ArchwingQuest/MissionThree"
+      },
+      {
+        "highScore": 100,
+        "type": "/Lotus/Types/Keys/ArchwingQuest/MissionFour"
+      },
+      {
+        "highScore": 100,
+        "type": "SolNode16"
+      },
+      {
+        "highScore": 1636866,
+        "type": "ClanNode18"
+      }
+    ],
+    "Scans": [
+      {
+        "scans": 4,
+        "type": "/Lotus/Types/Lore/LoreFragmentScanDeco"
+      },
+      {
+        "scans": 3,
+        "type": "/Lotus/Types/Enemies/Sentients/Scouts/ScoutAvatar"
+      }
+    ],
+    "GuildName": "Sons Of Bloodz#111"
+  }
+}

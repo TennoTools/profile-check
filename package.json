@@ -1,0 +1,39 @@
+{
+  "name": "@tennotools/profile-check",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Live test for @wfcd/profile-parser — TypeScript core, Fastify API, React GUI (local only)",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm -w @tennotools/profile-check-server run dev",
+    "dev:web": "npm -w @tennotools/profile-check-web run dev",
+    "build": "npm -w @tennotools/profile-check-core run build && npm -w @tennotools/profile-check-server run build && npm -w @tennotools/profile-check-web run build",
+    "start": "npm -w @tennotools/profile-check-server run start",
+    "test": "vitest run",
+    "check:live": "tsx scripts/check-once.ts",
+    "check:offline": "tsx scripts/check-once.ts --offline",
+    "typecheck": "npm -w @tennotools/profile-check-core run typecheck && npm -w @tennotools/profile-check-server run typecheck && npm -w @tennotools/profile-check-web run typecheck",
+    "lint": "biome check .",
+    "format": "biome check --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^26.6.5",
+    "concurrently": "^10.0.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "better-sqlite3@13.0.3": true
+  }
+}

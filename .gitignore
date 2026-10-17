@@ -1,0 +1,16 @@
+# deps
+node_modules/
+
+# local secrets & config
+.env
+.env.*
+opencode.jsonc
+
+# runtime data (SQLite DB)
+data/
+
+# builds & reports
+dist/
+coverage/
+*.log
+legacy/

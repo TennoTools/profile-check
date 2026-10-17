@@ -1,0 +1,26 @@
+/*
+ * In-site banner (element created by banner.js). Fonts are inherited from the page and colours use
+ * the site's own variables — nothing is copied. The two navigation-scoped values (not readable from
+ * the content area) are mirrored verbatim from .HeaderNavigationBar:
+ * --color-navigation-background / --color-navigation-border.
+ */
+#tt-banner {
+  background: var(--color-navigation-background);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to right, transparent, var(--color-button-border)) 1;
+  padding: 6px 16px 8px;
+  text-align: center;
+  pointer-events: none;
+}
+#tt-banner > .tt {
+  color: var(--color-navigation-text);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 2px;
+}
+#tt-banner > .text {
+  color: var(--color-subtitle);
+  font-size: 13px;
+  line-height: 1.35;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@tennotools/profile-check-server",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local Fastify API: runs, SSE, SQLite history, Playwright Get-ID job",
+  "scripts": {
+    "dev": "node --watch --watch-preserve-output --import tsx src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fastify/static": "^10.1.6",
+    "better-sqlite3": "^13.0.3",
+    "fastify": "^5.12.7",
+    "playwright": "^1.64.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0"
+  }
+}
