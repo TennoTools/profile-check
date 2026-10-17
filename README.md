@@ -247,5 +247,7 @@ Built on the community's work — the tools this project relies on:
   [Tailwind CSS](https://tailwindcss.com), [Playwright](https://playwright.dev),
   [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) and [zod](https://zod.dev) — the local
   API, GUI and storage stack.
+- [ImgBot](https://imgbot.net) — keeps every image in the repo (docs screenshots included) losslessly
+  compressed; its `[ImgBot] Optimize images` pull requests are routine.
 
 Profile Check is an independent community tool, not affiliated with Digital Extremes or WFCD.
