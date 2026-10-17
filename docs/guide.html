@@ -28,7 +28,7 @@
 
       <section class="hero">
         <h1>Guide</h1>
-        <p class="lede-sub">From first install to the local API — everything the README knows, on one page.</p>
+        <p class="lede-sub">From first install to the local API — the full documentation.</p>
       </section>
 
       <article class="card" id="first-run">
@@ -36,9 +36,12 @@
         <div class="card-body">
           <p class="small muted">
             No terminal skills? Windows: double-click <code>launch.bat</code> — Linux/macOS:
-            <code>./launch.sh</code> (first time only: <code>chmod +x launch.sh</code>). It installs, builds and
-            starts everything, then opens your browser — press <code>Q</code> in the launcher window to stop it
-            (the SQLite WAL is checkpointed on the way out).
+            <code>./launch.sh</code> (first time only: <code>chmod +x launch.sh</code>). It runs
+            <code>npm install</code> on the very first launch, downloads the Chromium helper for
+            <b>Find my Account ID</b> (~130 MB, one time), rebuilds the app whenever the sources changed, then
+            starts it in production mode on <code>http://127.0.0.1:8787</code> and opens your browser. The
+            window shows compact <code>[web]</code> / <code>[api]</code> / <code>[db]</code> logs — press
+            <code>Q</code> to stop it (the SQLite WAL is checkpointed on the way out).
           </p>
           <ol>
             <li>
@@ -59,7 +62,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="checks">
         <div class="card-head"><h2>What a check does</h2><span class="sub">one request, five steps</span></div>
         <div class="card-body">
           <ol>
@@ -85,7 +88,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="scripts">
         <div class="card-head"><h2>Scripts</h2><span class="sub">npm run …</span></div>
         <div class="card-body">
           <div class="table-wrap">
@@ -127,7 +130,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="config">
         <div class="card-head"><h2>Configuration</h2><span class="sub">.env is a bootstrap only</span></div>
         <div class="card-body">
           <p class="small muted">
@@ -159,7 +162,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="api">
         <div class="card-head"><h2>Local API</h2><span class="sub">for integrations</span></div>
         <div class="card-body">
           <div class="table-wrap">
@@ -204,7 +207,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="rules">
         <div class="card-head"><h2>Rules of engagement</h2><span class="sub">hard-won</span></div>
         <div class="card-body">
           <ul>
