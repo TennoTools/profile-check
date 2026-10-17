@@ -1,4 +1,6 @@
 {
+  "schedule": "weekly",
   "aggressiveCompression": false,
-  "minKBReduced": 10
+  "minKBReduced": 10,
+  "prTitle": "img: automatic optimization"
 }
