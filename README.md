@@ -1,8 +1,8 @@
 # TennoTools Profile Check — the Warframe profile-parser canary
 
-Local tool that verifies [`@wfcd/profile-parser`](https://github.com/WFCD/profile-parser) (WFCD) still
-parses **live Warframe profile data** served by Digital Extremes: fetch a profile by AccountId, parse it,
-run 13 frozen validation checks, show a verdict — in a local web GUI (TennoTools theme) with run history.
+Local tool that verifies **live Warframe profile data** served by Digital Extremes still parses
+correctly: fetch a profile by AccountId, parse it, run 13 frozen validation checks, show a verdict —
+in a local web GUI (TennoTools theme) with run history.
 
 The v1 CLI (`check-profile.mjs`, `get-account-id.mjs`) is **archived and still runnable** in
 [`legacy/`](legacy/README.md) — see [`legacy/SUMMARY.md`](legacy/SUMMARY.md) for the frozen v1 reference
@@ -143,3 +143,18 @@ and `legacy/.env` are included):
 ```bash
 cd legacy && npm start
 ```
+
+## Credits
+
+Built on the community's work — the tools this project relies on:
+
+- [`@wfcd/profile-parser`](https://github.com/WFCD/profile-parser) with
+  [`warframe-worldstate-data`](https://github.com/WFCD/warframe-worldstate-data) — the parser and game
+  data that Profile Check keeps honest.
+- [`@wfcd/items`](https://github.com/WFCD/items) — item and loadout data used by the checks.
+- [Fastify](https://fastify.dev), [React](https://react.dev), [Vite](https://vite.dev),
+  [Tailwind CSS](https://tailwindcss.com), [Playwright](https://playwright.dev),
+  [better-sqlite3](https://github.com/WiseLibs/better-sqlite3) and [zod](https://zod.dev) — the local
+  API, GUI and storage stack.
+
+Profile Check is an independent community tool, not affiliated with Digital Extremes or WFCD.

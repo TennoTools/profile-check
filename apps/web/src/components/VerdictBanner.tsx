@@ -26,7 +26,7 @@ export function VerdictBanner({ run }: { run: RunResult }) {
     },
     broken: {
       icon: '✗',
-      text: `THE PARSER LOOKS BROKEN — ${criticalFailed.length} critical field(s) missing or invalid. Report it: github.com/WFCD/profile-parser/issues`,
+      text: `THE PARSER LOOKS BROKEN — ${criticalFailed.length} critical field(s) missing or invalid. Report it to the parser project — see Credits in the README.`,
       cls: 'border-danger/40 bg-danger/10 text-danger',
     },
   }[run.verdict];

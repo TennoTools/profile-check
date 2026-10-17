@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "Live test for @wfcd/profile-parser — TypeScript core, Fastify API, React GUI (local only)",
+  "description": "TennoTools Profile Check — the Warframe profile-parser canary (local live-check, TS monorepo)",
   "engines": {
     "node": ">=22.12.0"
   },

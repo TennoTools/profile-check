@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "TennoTools local GUI (React + Vite + Tailwind)",
+  "description": "Profile Check web — local React 19 + Vite + Tailwind GUI (TennoTools theme)",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

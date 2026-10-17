@@ -1,7 +1,7 @@
 /**
  * Browser-safe subset of the core: schemas, checks, formatting, platforms and
  * AccountId helpers. Deliberately excludes `profile-parser` (Node-only, heavy)
- * so the web bundle never pulls @wfcd/profile-parser.
+ * so the web bundle never pulls the Node-only parser package.
  */
 
 export * from './account-id';

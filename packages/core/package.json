@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "Shared logic: platforms, fetch, parser wrapper, checks, schemas",
+  "description": "Profile Check core — platforms, DE fetch, parser wrapper, the 13 frozen checks, zod schemas",
   "exports": {
     ".": "./src/index.ts",
     "./web": "./src/web.ts"

@@ -3,7 +3,7 @@ import { Card } from './Card';
 
 const STEPS = [
   { key: 'fetch', label: 'Fetching the profile from Digital Extremes' },
-  { key: 'parse', label: 'Parsing with @wfcd/profile-parser' },
+  { key: 'parse', label: 'Parsing profile data' },
   { key: 'validate', label: 'Running the 13 checks' },
   { key: 'persist', label: 'Saving the result' },
 ] as const;

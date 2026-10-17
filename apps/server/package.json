@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "Local Fastify API: runs, SSE, SQLite history, Playwright Get-ID job",
+  "description": "Profile Check server — local Fastify API: runs, SSE, SQLite history, Playwright Get-ID job",
   "scripts": {
     "dev": "node --watch --watch-preserve-output --import tsx src/index.ts",
     "start": "tsx src/index.ts",

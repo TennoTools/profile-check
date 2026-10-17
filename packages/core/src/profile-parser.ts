@@ -1,4 +1,4 @@
-/** Thin typed wrapper around the WFCD parser (locale `en`, item pipeline off by default). */
+/** Thin typed wrapper around the community profile parser (locale `en`, item pipeline off by default). */
 
 import ProfileParser from '@wfcd/profile-parser/Parser';
 import type { Locale } from 'warframe-worldstate-data';
