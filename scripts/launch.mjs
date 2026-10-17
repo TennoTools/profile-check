@@ -15,6 +15,7 @@ import { spawn, spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, statSync } from 'node:fs';
 import { homedir, platform } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
+import { StringDecoder } from 'node:string_decoder';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -32,8 +33,11 @@ const browsersDir =
       ? join(homedir(), 'Library', 'Caches', 'ms-playwright')
       : join(homedir(), '.cache', 'ms-playwright'));
 
+const useColor = Boolean(process.stdout.isTTY);
+const paint = (code, text) => (useColor ? `\u001b[${code}m${text}\u001b[0m` : text);
+
 const title = 'TennoTools Profile Check - quick launch';
-console.log(`\n${title}\n${'='.repeat(title.length)}\n`);
+console.log(`\n${paint('1', title)}\n${'='.repeat(title.length)}\n`);
 
 function fail(message, hint) {
   console.error(`\nERROR: ${message}`);
@@ -75,6 +79,71 @@ function openBrowser() {
   const child = spawn(command, args, { stdio: 'ignore', detached: true, windowsHide: true });
   child.on('error', () => {});
   child.unref();
+}
+
+const apiTag = () => paint('36', '[api]');
+const webTag = () => paint('35', '[web]');
+const pendingRequests = new Map();
+
+// Turn the server's logs into short one-liners: `[api]` for the server itself
+// and API calls, `[web]` for page/asset requests. npm noise and the duplicate
+// "incoming request" lines are dropped; successful /api/health polls stay
+// quiet (the GUI polls them every 30 s).
+function formatServerLine(raw) {
+  const line = raw.replace(/\r$/, '').trim();
+  if (!line) return null;
+  if (line.startsWith('npm notice')) return null;
+  if (/^npm error (code|Lifecycle script|path|workspace|location|command) /.test(line)) return null;
+
+  if (line.startsWith('{')) {
+    let entry = null;
+    try {
+      entry = JSON.parse(line);
+    } catch {
+      entry = null;
+    }
+    if (entry) {
+      if (entry.msg === 'incoming request' && entry.req) {
+        pendingRequests.set(entry.reqId, entry.req);
+        return null;
+      }
+      if (entry.msg === 'request completed') {
+        const request = pendingRequests.get(entry.reqId);
+        pendingRequests.delete(entry.reqId);
+        const url = request?.url ?? '?';
+        const status = entry.res?.statusCode ?? '?';
+        if (url === '/api/health' && status < 400) return null;
+        const time = typeof entry.responseTime === 'number' ? ` (${entry.responseTime.toFixed(1)} ms)` : '';
+        const rest = `${request?.method ?? 'GET'} ${url} -> ${status}${time}`;
+        return `${url.startsWith('/api/') ? apiTag() : webTag()} ${status >= 400 ? paint('33', rest) : rest}`;
+      }
+      if (entry.msg) {
+        return `${apiTag()} ${entry.level >= 40 ? paint('31', entry.msg) : entry.msg}`;
+      }
+      return null;
+    }
+  }
+  return `${apiTag()} ${line}`;
+}
+
+function pipeServerOutput(stream) {
+  const decoder = new StringDecoder('utf8');
+  let buffer = '';
+  stream.on('data', (chunk) => {
+    buffer += decoder.write(chunk);
+    let newline = buffer.indexOf('\n');
+    while (newline >= 0) {
+      const formatted = formatServerLine(buffer.slice(0, newline));
+      if (formatted) console.log(formatted);
+      buffer = buffer.slice(newline + 1);
+      newline = buffer.indexOf('\n');
+    }
+  });
+  stream.on('end', () => {
+    buffer += decoder.end();
+    const formatted = formatServerLine(buffer);
+    if (formatted) console.log(formatted);
+  });
 }
 
 const newestMtime = (path) => {
@@ -167,8 +236,12 @@ async function main() {
   }
 
   step('Starting the app...');
-  const server = spawnTool('npm', ['start'], { cwd: root, stdio: 'inherit' });
+  const server = spawnTool('npm', ['start'], { cwd: root, stdio: ['ignore', 'pipe', 'pipe'] });
   server.on('error', (error) => fail(`Could not start the app: ${error.message}`));
+  pipeServerOutput(server.stdout);
+  pipeServerOutput(server.stderr);
+
+  let stopping = false;
 
   function shutdown() {
     if (server.pid && server.exitCode === null) {
@@ -180,10 +253,24 @@ async function main() {
     }
   }
 
-  for (const signal of ['SIGINT', 'SIGTERM']) {
-    process.on(signal, () => {
-      shutdown();
-      process.exit(0);
+  function stop() {
+    if (stopping) return;
+    stopping = true;
+    console.log(`\n${paint('1', 'Stopping Profile Check')} - see you next time!\n`);
+    shutdown();
+    setTimeout(() => process.exit(0), 300);
+  }
+
+  for (const signal of ['SIGINT', 'SIGTERM', 'SIGBREAK']) {
+    process.on(signal, () => stop());
+  }
+
+  // Press Q to stop cleanly (Ctrl+C works too). Only when a real terminal is attached.
+  if (process.stdin.isTTY) {
+    process.stdin.setRawMode(true);
+    process.stdin.resume();
+    process.stdin.on('data', (data) => {
+      if (data.includes(0x03) || /q/i.test(data.toString())) stop();
     });
   }
 
@@ -194,22 +281,27 @@ async function main() {
     if (!healthy) await sleep(500);
   }
 
-  if (!healthy && server.exitCode !== null) {
+  if (!healthy && !stopping && server.exitCode !== null) {
     fail(
       'The app stopped right after starting.',
       `The port ${port} may already be used by another program - close it or free the port, then try again.`,
     );
   }
-  if (!healthy) {
+  if (!healthy && !stopping) {
     shutdown();
     fail('The app did not answer within 60 seconds.', `Open ${appUrl} in your browser to see the details.`);
   }
+  if (stopping) return;
 
-  server.on('exit', (code) => process.exit(code || 0));
-  console.log(`\nThe app is ready: ${appUrl}`);
+  server.on('exit', (code) => process.exit(stopping ? 0 : code || 0));
+  console.log(`\nThe app is ready: ${paint('1', appUrl)}`);
   openBrowser();
   console.log('Opening your browser - first time? Just follow the setup wizard on the page.');
-  console.log('Keep this window open while you use Profile Check - closing it (or Ctrl+C) stops the app.\n');
+  const stopHint = process.stdin.isTTY
+    ? `Press ${paint('1', 'Q')} to stop - or simply close this window.`
+    : 'Press Ctrl+C to stop.';
+  console.log(`Keep this window open while you use Profile Check. ${stopHint}`);
+  console.log('');
 }
 
 main().catch((error) => {

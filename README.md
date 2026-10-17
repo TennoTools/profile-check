@@ -92,8 +92,9 @@ Only a [Node.js ≥ 22.12](https://nodejs.org) install is needed, the launcher h
 It checks Node, runs `npm install` on the very first launch, downloads the Chromium helper for
 **Find my Account ID** (~130 MB, one time), rebuilds the app whenever the sources changed, then starts it
 in production mode on `http://127.0.0.1:8787` and opens your browser. Later launches take seconds —
-nothing is re-installed or re-built unless needed. Keep its window open while you use the app: closing
-it stops Profile Check.
+nothing is re-installed or re-built unless needed. Keep its window open while you use the app: it shows
+compact logs (`[web]` for pages and assets, `[api]` for the server) and pressing `Q` stops Profile Check
+cleanly.
 
 ## Quick start (dev)
 
