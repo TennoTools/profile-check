@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The 13 checks — TennoTools Profile Check</title>
+    <meta
+      name="description"
+      content="The 13 frozen validation checks (6 critical), the verdict rules, and how the labels stay honest."
+    />
+    <meta name="theme-color" content="#050505" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <meta property="og:title" content="The 13 checks — TennoTools Profile Check" />
+    <meta property="og:image" content="https://tennotools.github.io/profile-check/assets/screens/hero.png" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a href="index.html"><img class="logo" src="assets/logo.png" alt="TennoTools" /></a>
+        <p class="tagline">Profile Check — the parser canary</p>
+        <nav class="main" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="guide.html">Guide</a>
+          <a href="checks.html" aria-current="page">Checks</a>
+          <a href="https://github.com/TennoTools/profile-check">GitHub ↗</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>The 13 checks</h1>
+        <p class="lede-sub">
+          Frozen v1 labels and critical flags — the contract between live DE data and the community parsers.
+        </p>
+      </section>
+
+      <article class="card">
+        <div class="card-head"><h2>How a check works</h2><span class="sub">fetch → parse → validate → verdict</span></div>
+        <div class="card-body">
+          <p>
+            One HTTP request pulls the profile; <code>@wfcd/profile-parser</code> parses it; the 13 checks run
+            through a safe wrapper (an exception becomes a failed check); the verdict is derived from critical
+            flags only. Details in the <a href="guide.html">guide</a>.
+          </p>
+          <p class="small muted">
+            Each run is persisted in <code>data/app.sqlite</code> — summary, individual checks, request metadata.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>The checks</h2><span class="sub">6 critical / 7 advisory</span></div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>#</th><th>Check (exact label)</th><th>Critical</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="num">1</td><td><code>profile.displayName is a non-empty string</code></td><td class="crit">yes</td></tr>
+                <tr><td class="num">2</td><td><code>profile.accountId matches the requested id</code></td><td class="opt">no</td></tr>
+                <tr><td class="num">3</td><td><code>profile.accountId is a 24-char hex ObjectId</code></td><td class="crit">yes</td></tr>
+                <tr><td class="num">4</td><td><code>profile.masteryRank is an integer &gt;= 0</code></td><td class="crit">yes</td></tr>
+                <tr><td class="num">5</td><td><code>profile.created is a valid Date</code></td><td class="crit">yes</td></tr>
+                <tr><td class="num">6</td><td><code>profile.loadout is built (suits/xpInfo arrays)</code></td><td class="crit">yes</td></tr>
+                <tr><td class="num">7</td><td><code>profile.missions is an array</code></td><td class="opt">no</td></tr>
+                <tr><td class="num">8</td><td><code>profile.challengeProgress is an array (Nightwave)</code></td><td class="opt">no</td></tr>
+                <tr><td class="num">9</td><td><code>profile.intrinsics is an object</code></td><td class="opt">no</td></tr>
+                <tr><td class="num">10</td><td><code>stats.timePlayedSec is a finite number</code></td><td class="crit">yes</td></tr>
+                <tr><td class="num">11</td><td><code>stats.missionsCompleted is a number</code></td><td class="opt">no</td></tr>
+                <tr><td class="num">12</td><td><code>stats.weapons and stats.enemies are arrays</code></td><td class="opt">no</td></tr>
+                <tr><td class="num">13</td><td><code>xpCacheExpiryDate / ceremonyResetDate are parsed Dates</code></td><td class="opt">no</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>The verdict</h2><span class="sub">derived from critical flags only</span></div>
+        <div class="card-body">
+          <div class="verdicts">
+            <span class="verdict bad">broken</span>
+            <span class="verdict warn">warnings</span>
+            <span class="verdict ok">ok</span>
+          </div>
+          <ul>
+            <li><b>broken</b> — at least one critical check failed: the parser pipeline is unusable for its purpose.</li>
+            <li><b>warnings</b> — only non-critical checks failed: the profile still parses, but a field drifted.</li>
+            <li><b>ok</b> — all 13 checks passed.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>Keeping the labels honest</h2><span class="sub">frozen by tests</span></div>
+        <div class="card-body">
+          <ul>
+            <li>
+              The exact labels and critical flags above are asserted by the test suite — they cannot drift silently.
+            </li>
+            <li>
+              An offline parity test replays a <b>real captured DE response</b>
+              (<code>packages/core/test/fixtures/profile.raw.json</code>) through the same pipeline on every
+              <code>npm test</code> — no network.
+            </li>
+            <li>
+              Refresh the fixture with <code>npm run check:live</code> (exactly one request), or run the whole
+              pipeline offline with <code>npm run check:offline</code>.
+            </li>
+          </ul>
+        </div>
+      </article>
+
+      <footer class="site-footer">
+        <a href="https://github.com/TennoTools">TennoTools</a> — independent community tool, not affiliated with
+        Digital Extremes or WFCD
+      </footer>
+    </div>
+  </body>
+</html>

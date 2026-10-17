@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="screens/hero.png" alt="TennoTools — Profile Check" width="640" />
+  <img src="docs/assets/screens/hero.png" alt="TennoTools — Profile Check" width="640" />
 </p>
 
 <h1 align="center">TennoTools Profile Check</h1>
@@ -15,6 +15,11 @@
   <img alt="TypeScript 7" src="https://img.shields.io/badge/TypeScript-7-3178C6" />
   <img alt="57 tests passing" src="https://img.shields.io/badge/tests-57%20passing-2ea44f" />
   <img alt="network — local-only" src="https://img.shields.io/badge/network-local--only-444444" />
+  <img alt="docs — GitHub Pages" src="https://img.shields.io/badge/docs-GitHub%20Pages-ffd700" />
+</p>
+
+<p align="center">
+  Project site &amp; docs — <a href="https://tennotools.github.io/profile-check/">tennotools.github.io/profile-check</a>
 </p>
 
 Local tool that verifies **live Warframe profile data** served by Digital Extremes still parses
@@ -32,22 +37,27 @@ in a local web GUI (TennoTools theme) with run history.
 ## Screenshots
 
 <p align="center">
-  <img src="screens/web-check-page.png" alt="Check page" width="800" /><br />
+  <img src="docs/assets/screens/web-init-page.png" alt="First-run wizard" width="800" /><br />
+  <sub><i><b>First run</b> — the <code>/init</code> wizard: key (optional), AccountId or the public sample; no nav until configured.</i></sub>
+</p>
+
+<p align="center">
+  <img src="docs/assets/screens/web-check-page.png" alt="Check page" width="800" /><br />
   <sub><i><b>Check</b> — platform, pasted or saved AccountId, one request per run.</i></sub>
 </p>
 
 <p align="center">
-  <img src="screens/web-history-page.png" alt="History page" width="800" /><br />
+  <img src="docs/assets/screens/web-history-page.png" alt="History page" width="800" /><br />
   <sub><i><b>History</b> — every run with player, platform, MR, verdict and duration.</i></sub>
 </p>
 
 <p align="center">
-  <img src="screens/web-settings-page.png" alt="Settings page" width="800" /><br />
+  <img src="docs/assets/screens/web-settings-page.png" alt="Settings page" width="800" /><br />
   <sub><i><b>Settings</b> — the ScraperAPI key stays server-side (SQLite) and is never sent to the browser.</i></sub>
 </p>
 
 <p align="center">
-  <img src="screens/banner-shot.png" alt="Find my Account ID in action" width="800" /><br />
+  <img src="docs/assets/screens/banner-shot.png" alt="Find my Account ID in action" width="800" /><br />
   <sub><i><b>Find my Account ID</b> — the temporary browser with its TennoTools banner; login is manual, nothing is kept.</i></sub>
 </p>
 
@@ -60,6 +70,7 @@ apps/server      Fastify on 127.0.0.1:8787 · better-sqlite3 history (data/app.s
                  SSE live progress · Playwright Get-ID job · serves the built web app
 apps/web         React 19 + Vite + Tailwind 4 GUI (black/gold TennoTools theme)
 scripts/         check-once.ts — one-shot terminal check (parity / fixture capture)
+docs/            static GitHub Pages site: landing, guide, the 13 checks (same theme, no JS)
 ```
 
 Everything is local-only: the server binds `127.0.0.1`, the ScraperAPI key never leaves the machine

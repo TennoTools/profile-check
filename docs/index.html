@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TennoTools Profile Check — the parser canary</title>
+    <meta
+      name="description"
+      content="Local live-check for the Warframe public profile endpoint: fetch a profile, parse it, run 13 frozen validation checks, get a verdict. Local-only, no telemetry."
+    />
+    <meta name="theme-color" content="#050505" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <meta property="og:title" content="TennoTools Profile Check" />
+    <meta
+      property="og:description"
+      content="The Warframe profile-parser canary — 13 frozen checks on live DE profile data, local-only."
+    />
+    <meta property="og:image" content="https://tennotools.github.io/profile-check/assets/screens/hero.png" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a href="index.html"><img class="logo" src="assets/logo.png" alt="TennoTools" /></a>
+        <p class="tagline">Profile Check — the parser canary</p>
+        <nav class="main" aria-label="Main">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="guide.html">Guide</a>
+          <a href="checks.html">Checks</a>
+          <a href="https://github.com/TennoTools/profile-check">GitHub ↗</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>TennoTools Profile Check</h1>
+        <p class="lede">The Warframe profile-parser canary.</p>
+        <p class="lede-sub">
+          Local live-check for the Warframe public profile endpoint — fetch a profile, parse it, run 13 frozen
+          validation checks, get a verdict.
+        </p>
+        <div class="badges">
+          <span class="pill">node ≥ 22.12</span>
+          <span class="pill">TypeScript 7</span>
+          <span class="pill">57 tests passing</span>
+          <span class="pill gold">network — local-only</span>
+        </div>
+        <div class="cta">
+          <a class="btn" href="guide.html">Get started</a>
+          <a class="btn ghost" href="checks.html">The 13 checks</a>
+          <a class="btn ghost" href="https://github.com/TennoTools/profile-check">GitHub</a>
+        </div>
+      </section>
+
+      <article class="card">
+        <div class="card-head"><h2>What it is</h2><span class="sub">a canary for the community parsers</span></div>
+        <div class="card-body">
+          <p>
+            Digital Extremes can change the profile payload any day. Profile Check fetches <b>one</b> live profile,
+            runs it through the community parsers, and tells you whether the invariants the ecosystem relies on still
+            hold — so a break shows up here, loudly, before it reaches users.
+          </p>
+          <ul>
+            <li>
+              <b>13 frozen checks</b> — v1 labels and critical flags, verdict <code>ok</code> /
+              <code>warnings</code> / <code>broken</code>.
+            </li>
+            <li><b>Live progress</b> — SSE stream: fetch → parse → validate → persist.</li>
+            <li><b>Run history</b> — every run stored locally in SQLite (<code>data/app.sqlite</code>).</li>
+            <li>
+              <b>Find my Account ID</b> — a temporary Chromium for a manual warframe.com login; your id is detected
+              and saved, nothing else.
+            </li>
+            <li>
+              <b>Optional ScraperAPI fallback</b> — one retry on network failure; the key never leaves the machine.
+            </li>
+            <li><b>Local-only by design</b> — GUI and API both on <code>127.0.0.1</code>, no telemetry of any kind.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>Screenshots</h2><span class="sub">the local GUI — black &amp; gold</span></div>
+        <div class="card-body">
+          <div class="shots">
+            <figure class="shot">
+              <img src="assets/screens/web-init-page.png" alt="First-run wizard" />
+              <figcaption>
+                <b>First run</b> — the <code>/init</code> wizard: key (optional), AccountId or the public sample.
+                No nav until the app is configured.
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="assets/screens/web-check-page.png" alt="Check page" />
+              <figcaption><b>Check</b> — platform, pasted or saved AccountId, one request per run.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="assets/screens/web-history-page.png" alt="History page" />
+              <figcaption><b>History</b> — every run with player, platform, MR, verdict and duration.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="assets/screens/web-settings-page.png" alt="Settings page" />
+              <figcaption>
+                <b>Settings</b> — the ScraperAPI key stays server-side (SQLite) and is never sent to the browser.
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="assets/screens/banner-shot.png" alt="Find my Account ID in action" />
+              <figcaption>
+                <b>Find my Account ID</b> — the temporary browser with its TennoTools banner; login is manual,
+                nothing is kept.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>Quick start</h2><span class="sub">Node ≥ 22.12, npm ≥ 10</span></div>
+        <div class="card-body">
+          <pre><code>git clone https://github.com/TennoTools/profile-check
+cd profile-check
+npm install
+npx playwright install chromium   # only needed for the "Find my Account ID" helper
+npm run dev                        # API on :8787 + GUI on http://localhost:5173</code></pre>
+          <p class="small muted">…or the single-process production mode:</p>
+          <pre><code>npm run build   # typechecks + builds the GUI
+npm start       # API + GUI on http://127.0.0.1:8787</code></pre>
+          <p class="small muted">
+            Next: the <a href="guide.html#first-run">first-run wizard</a>, the
+            <a href="checks.html">13 checks</a>, or an offline run with <code>npm run check:offline</code>
+            (no network at all).
+          </p>
+        </div>
+      </article>
+
+      <footer class="site-footer">
+        <a href="https://github.com/TennoTools">TennoTools</a> — independent community tool, not affiliated with
+        Digital Extremes or WFCD
+      </footer>
+    </div>
+  </body>
+</html>

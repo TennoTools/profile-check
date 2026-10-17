@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guide — TennoTools Profile Check</title>
+    <meta
+      name="description"
+      content="Install, first run, scripts, configuration, local API and rules of engagement for TennoTools Profile Check."
+    />
+    <meta name="theme-color" content="#050505" />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <meta property="og:title" content="Guide — TennoTools Profile Check" />
+    <meta property="og:image" content="https://tennotools.github.io/profile-check/assets/screens/hero.png" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a href="index.html"><img class="logo" src="assets/logo.png" alt="TennoTools" /></a>
+        <p class="tagline">Profile Check — the parser canary</p>
+        <nav class="main" aria-label="Main">
+          <a href="index.html">Home</a>
+          <a href="guide.html" aria-current="page">Guide</a>
+          <a href="checks.html">Checks</a>
+          <a href="https://github.com/TennoTools/profile-check">GitHub ↗</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <h1>Guide</h1>
+        <p class="lede-sub">From first install to the local API — everything the README knows, on one page.</p>
+      </section>
+
+      <article class="card" id="first-run">
+        <div class="card-head"><h2>First run</h2><span class="sub">the /init wizard</span></div>
+        <div class="card-body">
+          <ol>
+            <li>
+              <b>The <code>/init</code> wizard</b> — with nothing configured yet, every app page redirects to a
+              standalone first-run screen (no nav): paste your ScraperAPI key (optional), find your AccountId with
+              <b>Find my Account ID</b> (temporary Chromium, manual login, nothing stored) — or press
+              <b>Try with the sample account</b> to test the pipeline on [DE]Rebecca's public profile. Saving a key
+              or an id leaves the wizard for good (skipping unlocks the app for the session and re-proposes it next
+              session).
+            </li>
+            <li>
+              <b>Check</b> — <b>Find &amp; run</b> finds your AccountId and launches the check as soon as it is
+              found; you can also <b>Paste</b> a known 24-hex id or reuse the <b>saved</b> one. The finder alone
+              lives in <b>Settings</b>.
+            </li>
+            <li>Watch the live progress (SSE) and read the verdict; each run is kept in <b>History</b>.</li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>What a check does</h2><span class="sub">one request, five steps</span></div>
+        <div class="card-body">
+          <ol>
+            <li>
+              <b>Fetch</b> — exactly one HTTP request to
+              <code>https://api[-&lt;platform&gt;].warframe.com/cdn/getProfileViewingData.php?playerId=&lt;id&gt;</code>
+              (<code>pc</code> uses <code>api.warframe.com</code>; consoles use
+              <code>api-ps4|x-xb1|api-swi|api-mob|api-and</code>). With a ScraperAPI key, a network-level failure
+              triggers a single retry through the proxy (<code>direct → scraperapi-fallback</code>). HTTP error
+              statuses are never retried.
+            </li>
+            <li><b>Parse</b> — <code>new ProfileParser(data, 'en', withItem=false)</code>.</li>
+            <li>
+              <b>Validate</b> — the 13 frozen checks (6 critical), run through a safe wrapper (an exception becomes a
+              failed check) — <a href="checks.html">full list and rules</a>.
+            </li>
+            <li>
+              <b>Verdict</b> — any critical fail → <code>broken</code>; only non-critical fails →
+              <code>warnings</code>; else <code>ok</code>.
+            </li>
+            <li><b>Persist</b> — summary + checks + request metadata in <code>data/app.sqlite</code>.</li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>Scripts</h2><span class="sub">npm run …</span></div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Script</th><th>What it does</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>npm run dev</code></td>
+                  <td>API (node --watch + tsx) + web (Vite) together — GUI shows an offline banner if the API is down</td>
+                </tr>
+                <tr>
+                  <td><code>npm run build</code></td>
+                  <td>typecheck all packages + build the web app into <code>apps/web/dist</code></td>
+                </tr>
+                <tr><td><code>npm start</code></td><td>serve API + built GUI on <code>http://127.0.0.1:8787</code></td></tr>
+                <tr>
+                  <td><code>npm test</code></td>
+                  <td>vitest — 57 tests (unit + API integration + web API client + offline live-fixture parity)</td>
+                </tr>
+                <tr><td><code>npm run typecheck</code></td><td>tsc on core, server and web</td></tr>
+                <tr><td><code>npm run lint</code> / <code>format</code></td><td>Biome check / auto-fix</td></tr>
+                <tr>
+                  <td><code>npm run check:live</code></td>
+                  <td>one-shot terminal check against DE (1 request), refreshes the test fixture</td>
+                </tr>
+                <tr>
+                  <td><code>npm run check:offline</code></td>
+                  <td>same pipeline on the saved fixture, no network</td>
+                </tr>
+                <tr>
+                  <td><code>npm run db:checkpoint</code></td>
+                  <td>fold the SQLite WAL into <code>data/app.sqlite</code> so any viewer can read it</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>Configuration</h2><span class="sub">.env is a bootstrap only</span></div>
+        <div class="card-body">
+          <p class="small muted">
+            <code>.env</code> at the repo root is read once at startup; missing keys are seeded into the settings DB,
+            and the GUI is the source of truth afterwards.
+          </p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Key</th><th>Meaning</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>SCRAPERAPI_KEY</code></td><td>optional proxy key</td></tr>
+                <tr><td><code>WARFRAME_ACCOUNT_ID</code></td><td>your AccountId, used as the default in the GUI</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small">
+            Environment overrides: <code>TENNOTOOLS_HOST</code> (default <code>127.0.0.1</code>),
+            <code>TENNOTOOLS_PORT</code> (default <code>8787</code>), <code>TENNOTOOLS_DB_PATH</code> (default
+            <code>data/app.sqlite</code>).
+          </p>
+          <div class="callout">
+            <b>Never upload the database.</b> Run history lives in <code>data/app.sqlite</code> (SQLite, WAL mode);
+            while the server runs, recent rows may still be in <code>app.sqlite-wal</code> — stop the server or run
+            <code>npm run db:checkpoint</code> before opening the file in a viewer. The settings table holds your
+            ScraperAPI key in clear text.
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>Local API</h2><span class="sub">for integrations</span></div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Method</th><th>Path</th><th>Purpose</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>GET</td><td><code>/api/health</code></td><td>liveness</td></tr>
+                <tr>
+                  <td>POST</td><td><code>/api/runs</code></td>
+                  <td>start a check <code>{platform, accountId, useProxy}</code> → 202 <code>{id}</code></td>
+                </tr>
+                <tr><td>GET</td><td><code>/api/runs?limit&amp;offset</code></td><td>history list</td></tr>
+                <tr><td>GET</td><td><code>/api/runs/:id</code></td><td>full run result</td></tr>
+                <tr>
+                  <td>GET</td><td><code>/api/runs/:id/events</code></td>
+                  <td>SSE: <code>progress</code> / <code>done</code> / <code>error</code> (replays history to late subscribers)</td>
+                </tr>
+                <tr>
+                  <td>GET/PUT</td><td><code>/api/settings</code></td>
+                  <td>settings view / update (key always returned masked)</td>
+                </tr>
+                <tr>
+                  <td>POST</td><td><code>/api/account-id/discover</code></td>
+                  <td>start the Playwright Get-ID job → 202 <code>{jobId}</code></td>
+                </tr>
+                <tr>
+                  <td>GET</td><td><code>/api/account-id/discover/events?jobId=</code></td>
+                  <td>SSE status stream</td>
+                </tr>
+                <tr>
+                  <td>POST</td><td><code>/api/account-id/discover/cancel</code></td>
+                  <td>cancel the running job</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small muted">
+            All payloads are validated with zod schemas shared from <code>@tennotools/profile-check-core</code>.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>Rules of engagement</h2><span class="sub">hard-won</span></div>
+        <div class="card-body">
+          <ul>
+            <li>
+              The <b>only working endpoint</b> is
+              <code>api[-&lt;platform&gt;].warframe.com/cdn/getProfileViewingData.php?playerId=</code>; DE removed
+              the old nickname endpoint — a nickname alone can no longer fetch a profile.
+            </li>
+            <li>
+              The profile must be <b>viewable in game</b> (Esc → Options → Social → profile viewing), otherwise DE
+              answers 500 even for a valid id.
+            </li>
+            <li>
+              DE <b>caches</b> responses — the run page shows <code>XpCacheExpiryDate</code>; wait for expiry before
+              retrying.
+            </li>
+            <li>
+              AccountIds are MongoDB ObjectIds: 24 hex chars whose first 4 bytes are a creation timestamp — that is
+              what <code>looksLikeAccountId</code> checks (2012 → now + 1 year).
+            </li>
+          </ul>
+          <div class="callout">
+            <b>Do not spam the API.</b> Excessive calls can temporarily ban your IP, which also blocks game login.
+            One request per run is all this tool ever does (plus at most one ScraperAPI fallback).
+          </div>
+        </div>
+      </article>
+
+      <footer class="site-footer">
+        <a href="https://github.com/TennoTools">TennoTools</a> — independent community tool, not affiliated with
+        Digital Extremes or WFCD
+      </footer>
+    </div>
+  </body>
+</html>
