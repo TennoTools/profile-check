@@ -2,7 +2,7 @@ import type { FastifyInstance } from 'fastify';
 import { afterEach, describe, expect, it } from 'vitest';
 import { type BuildAppOptions, buildApp } from '../src/app';
 
-const ACCOUNT_ID = '6acc3cbc4499b934fa0956e2';
+const ACCOUNT_ID = '505875fb1a4d80894a000000';
 
 let apps: FastifyInstance[] = [];
 
@@ -59,6 +59,25 @@ describe('settings API', () => {
 
     const cleared = await app.inject({ method: 'PUT', url: '/api/settings', payload: { scraperApiKey: null } });
     expect(cleared.json().hasScraperApiKey).toBe(false);
+  });
+
+  it('turns on "use ScraperAPI by default" with the first key, off again when cleared', async () => {
+    const app = makeApp();
+    const put = await app.inject({ method: 'PUT', url: '/api/settings', payload: { scraperApiKey: 'first-key' } });
+    expect(put.json().defaultUseProxy).toBe(true);
+
+    const cleared = await app.inject({ method: 'PUT', url: '/api/settings', payload: { scraperApiKey: null } });
+    expect(cleared.json().defaultUseProxy).toBe(false);
+  });
+
+  it('respects an explicit defaultUseProxy when saving the key', async () => {
+    const app = makeApp();
+    const put = await app.inject({
+      method: 'PUT',
+      url: '/api/settings',
+      payload: { scraperApiKey: 'first-key', defaultUseProxy: false },
+    });
+    expect(put.json().defaultUseProxy).toBe(false);
   });
 
   it('rejects unknown fields and out-of-range values', async () => {

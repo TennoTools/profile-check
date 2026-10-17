@@ -4,7 +4,7 @@ import { cancelDiscover, startDiscover } from '../lib/api';
 import { subscribeToDiscover } from '../lib/sse';
 import { buttonGhost, buttonPrimary } from './controls';
 
-const TERMINAL: ReadonlySet<GetIdEvent['state']> = new Set(['found', 'closed', 'timeout', 'cancelled', 'error']);
+const TERMINAL: ReadonlySet<GetIdEvent['state']> = new Set(['found', 'closed', 'cancelled', 'error']);
 
 export function GetIdModal({
   open,
@@ -105,8 +105,8 @@ export function GetIdModal({
                 <span>Waiting for your login on warframe.com…</span>
               </div>
               <p className="text-xs text-muted">
-                If a reCAPTCHA appears, solve it and submit again — waiting continues. The browser closes itself once
-                your AccountId is found.
+                If a reCAPTCHA appears, solve it and submit again — waiting continues. No time limit: the browser closes
+                itself once your AccountId is found.
               </p>
             </div>
           ) : status.state === 'found' ? (
@@ -137,7 +137,6 @@ export function GetIdModal({
                 {status.message ??
                   {
                     closed: 'Browser closed before an account id was found.',
-                    timeout: 'Timed out — did you finish logging in?',
                     cancelled: 'Cancelled.',
                     error: 'Something went wrong.',
                   }[status.state]}

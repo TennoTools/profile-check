@@ -11,13 +11,7 @@ import {
   runResultSchema,
 } from '@tennotools/profile-check-core/web';
 
-const TERMINAL_GET_ID_STATES: ReadonlySet<GetIdEvent['state']> = new Set([
-  'found',
-  'closed',
-  'timeout',
-  'cancelled',
-  'error',
-]);
+const TERMINAL_GET_ID_STATES: ReadonlySet<GetIdEvent['state']> = new Set(['found', 'closed', 'cancelled', 'error']);
 
 const parseData = <T>(event: Event): T | undefined => {
   const raw = (event as MessageEvent).data;

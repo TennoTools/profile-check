@@ -148,15 +148,7 @@ export const checkEventSchema = z.discriminatedUnion('event', [
 ]);
 export type CheckEvent = z.infer<typeof checkEventSchema>;
 
-export const getIdStateSchema = z.enum([
-  'launching',
-  'waiting-login',
-  'found',
-  'closed',
-  'timeout',
-  'cancelled',
-  'error',
-]);
+export const getIdStateSchema = z.enum(['launching', 'waiting-login', 'found', 'closed', 'cancelled', 'error']);
 export const getIdEventSchema = z.object({
   state: getIdStateSchema,
   accountId: z.string().optional(),

@@ -20,6 +20,7 @@
     "test": "vitest run",
     "check:live": "tsx scripts/check-once.ts",
     "check:offline": "tsx scripts/check-once.ts --offline",
+    "db:checkpoint": "tsx scripts/db-checkpoint.ts",
     "typecheck": "npm -w @tennotools/profile-check-core run typecheck && npm -w @tennotools/profile-check-server run typecheck && npm -w @tennotools/profile-check-web run typecheck",
     "lint": "biome check .",
     "format": "biome check --write ."

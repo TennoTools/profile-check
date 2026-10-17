@@ -30,7 +30,7 @@ const accountId = (process.env.WARFRAME_ACCOUNT_ID ?? dotEnv.WARFRAME_ACCOUNT_ID
 const scraperApiKey = process.env.SCRAPERAPI_KEY ?? dotEnv.SCRAPERAPI_KEY;
 const platform = (process.env.TENNOTOOLS_PLATFORM ?? 'pc') as Platform;
 
-if (!accountId) {
+if (!offline && !accountId) {
   console.error('✗ No AccountId — set WARFRAME_ACCOUNT_ID in .env (or use the GUI Get-ID helper).');
   process.exit(1);
 }

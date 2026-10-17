@@ -115,7 +115,7 @@ export function CheckPage() {
                     setAccountId(event.target.value);
                     setPasteMessage(null);
                   }}
-                  placeholder="6acc3cbc4499b934fa0956e2"
+                  placeholder="505875fb1a4d80894a000000"
                   disabled={busy}
                   spellCheck={false}
                   autoComplete="off"

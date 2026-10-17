@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { accountIdSchema, runRequestSchema, runResultSchema, settingsUpdateSchema } from '../src';
 
-const ACCOUNT_ID = '6acc3cbc4499b934fa0956e2';
+const ACCOUNT_ID = '505875fb1a4d80894a000000';
 
 const sampleRun = {
   version: 2 as const,
@@ -18,7 +18,7 @@ const sampleRun = {
     xpCacheExpiryDate: '2026-10-18T16:24:02.000Z',
   },
   summary: {
-    nickname: '-Siova',
+    nickname: 'TestTenno',
     accountId: ACCOUNT_ID,
     masteryRank: 2,
     created: '2026-10-12T00:00:00.000Z',

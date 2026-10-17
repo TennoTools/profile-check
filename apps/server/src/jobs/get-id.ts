@@ -2,6 +2,9 @@
  * Get-ID job — port of v1 get-account-id.mjs, driven by the local web GUI:
  * temporary Chromium + manual warframe.com login → read cookies/storage →
  * emit the found AccountId. Everything is erased when the browser closes.
+ *
+ * No time limit: the job keeps waiting until the id is found, the user closes
+ * the window, or the job is cancelled (GUI button / server shutdown).
  */
 
 import { mkdtemp, rm } from 'node:fs/promises';
@@ -20,7 +23,6 @@ export interface GetIdJobOptions {
   bus: EventBus<GetIdEvent>;
   jobId: string;
   extensionPath: string;
-  timeoutMs: number;
 }
 
 export interface DiscoverJobHandle {
@@ -64,7 +66,7 @@ export class GetIdJob implements DiscoverJobHandle {
   }
 
   async run(): Promise<void> {
-    const { extensionPath, timeoutMs } = this.options;
+    const { extensionPath } = this.options;
     try {
       this.emit({ state: 'launching' });
       this.tempProfile = await mkdtemp(join(tmpdir(), 'tennotools-getid-'));
@@ -111,13 +113,12 @@ export class GetIdJob implements DiscoverJobHandle {
       }
     };
 
-    const deadline = Date.now() + timeoutMs;
     let closedByUser = false;
     page.on('close', () => {
       closedByUser = true;
     });
 
-    while (!this.cancelled && !closedByUser && Date.now() < deadline) {
+    while (!this.cancelled && !closedByUser) {
       try {
         if (onAccountPage()) {
           const storages = await page.evaluate(() => ({ ...localStorage, ...sessionStorage })).catch(() => ({}));
@@ -140,13 +141,8 @@ export class GetIdJob implements DiscoverJobHandle {
     await this.shutdown();
     if (this.cancelled) {
       this.emit({ state: 'cancelled' });
-    } else if (closedByUser) {
-      this.emit({ state: 'closed', message: 'Browser closed before an account id was found.' });
     } else {
-      this.emit({
-        state: 'timeout',
-        message: `No account id found after ${Math.round(timeoutMs / 1000)} s — did you finish logging in?`,
-      });
+      this.emit({ state: 'closed', message: 'Browser closed before an account id was found.' });
     }
   }
 }

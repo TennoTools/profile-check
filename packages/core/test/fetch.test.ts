@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { explainStatus, fetchProfile, ProfileFetchError, wrapWithScraperApi } from '../src';
 
-const ACCOUNT_ID = '6acc3cbc4499b934fa0956e2';
+const ACCOUNT_ID = '505875fb1a4d80894a000000';
 const DIRECT_URL = `https://api.warframe.com/cdn/getProfileViewingData.php?playerId=${ACCOUNT_ID}`;
 
 const jsonResponse = (data: unknown, status = 200): Response =>

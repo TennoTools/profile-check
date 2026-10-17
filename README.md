@@ -13,7 +13,7 @@
 <p align="center">
   <img alt="node ≥ 22.12" src="https://img.shields.io/badge/node-%E2%89%A5%2022.12-339933" />
   <img alt="TypeScript 7" src="https://img.shields.io/badge/TypeScript-7-3178C6" />
-  <img alt="51 tests passing" src="https://img.shields.io/badge/tests-51%20passing-2ea44f" />
+  <img alt="53 tests passing" src="https://img.shields.io/badge/tests-53%20passing-2ea44f" />
   <img alt="network — local-only" src="https://img.shields.io/badge/network-local--only-444444" />
 </p>
 
@@ -134,11 +134,12 @@ npm start         # API + GUI on http://127.0.0.1:8787
 | `npm run dev` | API (node --watch + tsx) + web (Vite) together — GUI shows an offline banner if the API is down |
 | `npm run build` | typecheck all packages + build the web app into `apps/web/dist` |
 | `npm start` | serve API + built GUI on `http://127.0.0.1:8787` |
-| `npm test` | vitest — 51 tests (unit + API integration + web API client + offline live-fixture parity) |
+| `npm test` | vitest — 53 tests (unit + API integration + web API client + offline live-fixture parity) |
 | `npm run typecheck` | tsc on core, server and web |
 | `npm run lint` / `npm run format` | Biome check / auto-fix |
 | `npm run check:live` | one-shot terminal check against DE (1 request), refreshes the test fixture |
 | `npm run check:offline` | same pipeline on the saved fixture, no network |
+| `npm run db:checkpoint` | fold the SQLite WAL into `data/app.sqlite` so any viewer can read it |
 
 ## Configuration
 
@@ -151,7 +152,12 @@ the settings DB; the GUI is the source of truth afterwards):
 | `WARFRAME_ACCOUNT_ID` | your AccountId, used as the default in the GUI |
 
 Environment overrides: `TENNOTOOLS_HOST` (default `127.0.0.1`), `TENNOTOOLS_PORT` (default `8787`),
-`TENNOTOOLS_DB_PATH` (default `data/app.sqlite`), `GET_ACCOUNT_ID_TIMEOUT_MS` (default 300000).
+`TENNOTOOLS_DB_PATH` (default `data/app.sqlite`).
+
+Inspecting the database: run history lives in `data/app.sqlite` (SQLite, WAL mode). While the server
+is running, recent rows may still be in `app.sqlite-wal` — stop the server or run
+`npm run db:checkpoint` before opening the file in a viewer. Never upload it anywhere: the settings
+table holds your ScraperAPI key in clear text.
 
 ## Local API (for integrations)
 
@@ -195,16 +201,6 @@ npm test
   SSE replay of terminal events.
 - `apps/web/test` — API client regressions: body-less POSTs (account-id discover/cancel) must not
   send a JSON content-type (Fastify's empty-body 400), plus error-message extraction.
-
-## Legacy v1
-
-The original JavaScript CLI (`check-profile.mjs`, `get-account-id.mjs` and a first HTML GUI) is
-archived in `legacy/` — still fully runnable, kept out of this repository (it embeds its own
-`node_modules/` and `.env`):
-
-```bash
-cd legacy && npm start
-```
 
 ## Credits
 

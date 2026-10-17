@@ -63,6 +63,7 @@ export function SettingsPage() {
     mutationFn: () => updateSettings({ scraperApiKey: null }),
     onSuccess: () => {
       invalidate();
+      setForm((current) => (current ? { ...current, useProxy: false } : current));
       setNotice('ScraperAPI key cleared.');
     },
   });
@@ -103,7 +104,12 @@ export function SettingsPage() {
               className={inputClass}
               placeholder={hasKey ? `saved (${settingsQuery.data?.scraperApiKeyMask}) — type to replace` : 'not set'}
               value={form.key}
-              onChange={(event) => setForm({ ...form, key: event.target.value })}
+              onChange={(event) => {
+                const key = event.target.value;
+                // First key entered: pre-check "Use ScraperAPI by default" (still uncheckable below).
+                const firstKey = !hasKey && form.key === '' && key.trim() !== '';
+                setForm({ ...form, key, useProxy: form.useProxy || firstKey });
+              }}
               autoComplete="off"
             />
             <div className="mt-2 flex flex-wrap gap-2">

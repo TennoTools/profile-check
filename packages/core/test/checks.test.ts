@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { deriveVerdict, formatDuration, type ParserLike, runCheck, validateProfile } from '../src';
 
-const ACCOUNT_ID = '6acc3cbc4499b934fa0956e2';
+const ACCOUNT_ID = '505875fb1a4d80894a000000';
 
 /** Frozen labels — MUST match legacy/SUMMARY.md and v1 behavior exactly. */
 const FROZEN_LABELS = [
@@ -31,7 +31,7 @@ const CRITICAL_LABELS = [
 
 const validParser = (): ParserLike => ({
   profile: {
-    displayName: '-Siova',
+    displayName: 'TestTenno',
     accountId: ACCOUNT_ID,
     masteryRank: 2,
     created: new Date('2026-10-12T00:00:00.000Z'),

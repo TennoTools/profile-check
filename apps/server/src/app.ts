@@ -29,13 +29,7 @@ export interface BuildAppOptions {
   dotEnv?: Record<string, string>;
 }
 
-const TERMINAL_GET_ID_STATES: ReadonlySet<GetIdEvent['state']> = new Set([
-  'found',
-  'closed',
-  'timeout',
-  'cancelled',
-  'error',
-]);
+const TERMINAL_GET_ID_STATES: ReadonlySet<GetIdEvent['state']> = new Set(['found', 'closed', 'cancelled', 'error']);
 
 const writeSseHead = (raw: ServerResponse): void => {
   raw.writeHead(200, {
@@ -139,8 +133,16 @@ export function buildApp(options: BuildAppOptions = {}): FastifyInstance {
     if (update.defaultUseProxy !== undefined) settings.set('default_use_proxy', update.defaultUseProxy ? '1' : '0');
     if (update.timeoutMs !== undefined) settings.set('timeout_ms', String(update.timeoutMs));
     if (update.scraperApiKey !== undefined) {
-      if (update.scraperApiKey === null) settings.delete('scraperapi_key');
-      else settings.set('scraperapi_key', update.scraperApiKey.trim());
+      const hadKey = Boolean(settings.get('scraperapi_key'));
+      if (update.scraperApiKey === null) {
+        settings.delete('scraperapi_key');
+        // Clearing the key also turns off the proxy default (unless explicitly overridden).
+        if (update.defaultUseProxy === undefined) settings.set('default_use_proxy', '0');
+      } else {
+        settings.set('scraperapi_key', update.scraperApiKey.trim());
+        // First key saved: route through ScraperAPI by default (unless explicitly overridden).
+        if (!hadKey && update.defaultUseProxy === undefined) settings.set('default_use_proxy', '1');
+      }
     }
     return settingsView();
   });
@@ -153,7 +155,6 @@ export function buildApp(options: BuildAppOptions = {}): FastifyInstance {
       bus: getIdBus,
       jobId: randomUUID(),
       extensionPath: config.extensionPath,
-      timeoutMs: config.getIdTimeoutMs,
     });
     activeGetIdJob = job;
     void job.run().finally(() => {

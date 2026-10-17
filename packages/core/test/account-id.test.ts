@@ -4,15 +4,15 @@ import { accountIdCandidates, looksLikeAccountId } from '../src';
 const idAt = (unixSeconds: number, filler = '0'): string =>
   `${Math.floor(unixSeconds).toString(16).padStart(8, '0')}${filler.repeat(16).slice(0, 16)}`;
 
-const ID_2026 = '6acc3cbc4499b934fa0956e2';
+const ID_2012 = '505875fb1a4d80894a000000';
 
 describe('looksLikeAccountId', () => {
-  it('accepts a real-style 2026 ObjectId', () => {
-    expect(looksLikeAccountId(ID_2026)).toBe(true);
+  it('accepts a real-style 2012 ObjectId', () => {
+    expect(looksLikeAccountId(ID_2012)).toBe(true);
   });
 
   it('accepts the uppercase form', () => {
-    expect(looksLikeAccountId(ID_2026.toUpperCase())).toBe(true);
+    expect(looksLikeAccountId(ID_2012.toUpperCase())).toBe(true);
   });
 
   it('accepts the 2012-01-01 lower boundary exactly', () => {
@@ -28,8 +28,8 @@ describe('looksLikeAccountId', () => {
   });
 
   it('rejects non-hex, short and non-string values', () => {
-    expect(looksLikeAccountId('zzzzcbc4499b934fa0956e2')).toBe(false);
-    expect(looksLikeAccountId('6acc3cbc4499b934fa0956e')).toBe(false);
+    expect(looksLikeAccountId('zzzz75fb1a4d80894a000000')).toBe(false);
+    expect(looksLikeAccountId('505875fb1a4d80894a00000')).toBe(false);
     expect(looksLikeAccountId(undefined)).toBe(false);
     expect(looksLikeAccountId(42)).toBe(false);
   });
@@ -38,7 +38,7 @@ describe('looksLikeAccountId', () => {
 describe('accountIdCandidates', () => {
   it('extracts nothing from irrelevant cookies', () => {
     const candidates = accountIdCandidates([
-      { name: 'gid', domain: 'example.com', value: ID_2026 },
+      { name: 'gid', domain: 'example.com', value: ID_2012 },
       { name: 'gid', domain: 'warframe.com', value: 'nothing-here' },
     ]);
     expect(candidates).toEqual([]);
@@ -49,23 +49,23 @@ describe('accountIdCandidates', () => {
     const candidates = accountIdCandidates(
       [
         { name: 'session', domain: 'www.warframe.com', value: `x=${other}` },
-        { name: 'gid', domain: 'warframe.com', value: ID_2026 },
+        { name: 'gid', domain: 'warframe.com', value: ID_2012 },
       ],
       { some: `prefer=${other}` },
     );
     expect(candidates).toEqual([
-      { id: ID_2026, source: 'gid' },
+      { id: ID_2012, source: 'gid' },
       { id: other, source: 'cookie' },
     ]);
   });
 
   it('url-decodes cookie values before matching', () => {
-    const candidates = accountIdCandidates([{ name: 'gid', domain: 'warframe.com', value: `prefix%20${ID_2026}` }]);
-    expect(candidates).toEqual([{ id: ID_2026, source: 'gid' }]);
+    const candidates = accountIdCandidates([{ name: 'gid', domain: 'warframe.com', value: `prefix%20${ID_2012}` }]);
+    expect(candidates).toEqual([{ id: ID_2012, source: 'gid' }]);
   });
 
   it('reads storage values when no cookie matches', () => {
-    const candidates = accountIdCandidates([], { key: `"account":{"id":"${ID_2026}"}` });
-    expect(candidates).toEqual([{ id: ID_2026, source: 'storage' }]);
+    const candidates = accountIdCandidates([], { key: `"account":{"id":"${ID_2012}"}` });
+    expect(candidates).toEqual([{ id: ID_2012, source: 'storage' }]);
   });
 });

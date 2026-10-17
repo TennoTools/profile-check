@@ -58,7 +58,7 @@ describe('web api client', () => {
   it('startRun: sends the JSON content-type with the serialized payload', async () => {
     fetchMock.mockResolvedValueOnce(jsonResponse(202, { id: 'run-1' }));
 
-    await expect(startRun({ platform: 'pc', accountId: '6acc3cbc4499b934fa0956e2', useProxy: false })).resolves.toEqual(
+    await expect(startRun({ platform: 'pc', accountId: '505875fb1a4d80894a000000', useProxy: false })).resolves.toEqual(
       { id: 'run-1' },
     );
 
@@ -66,7 +66,7 @@ describe('web api client', () => {
     expect(new Headers(init?.headers).get('content-type')).toBe('application/json');
     expect(JSON.parse(String(init?.body))).toEqual({
       platform: 'pc',
-      accountId: '6acc3cbc4499b934fa0956e2',
+      accountId: '505875fb1a4d80894a000000',
       useProxy: false,
     });
   });

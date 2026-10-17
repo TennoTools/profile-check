@@ -14,7 +14,6 @@ export interface ServerConfig {
   dbPath: string;
   webDistPath: string;
   extensionPath: string;
-  getIdTimeoutMs: number;
   /** Values read once from the repo-root .env (bootstrap only — settings DB wins afterwards). */
   dotEnv: Record<string, string>;
 }
@@ -27,7 +26,6 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ServerConfig {
     dbPath: env.TENNOTOOLS_DB_PATH ?? join(REPO_ROOT, 'data', 'app.sqlite'),
     webDistPath: join(REPO_ROOT, 'apps', 'web', 'dist'),
     extensionPath: join(REPO_ROOT, 'apps', 'server', 'assets', 'extension'),
-    getIdTimeoutMs: Number(env.GET_ACCOUNT_ID_TIMEOUT_MS ?? '') || 5 * 60_000,
     dotEnv,
   };
 }
